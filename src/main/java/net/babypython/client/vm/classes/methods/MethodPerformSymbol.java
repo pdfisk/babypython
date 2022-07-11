@@ -1,0 +1,55 @@
+/**
+ * MIT License
+ *
+ * Copyright (c) 2022 Peter Fisk
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ */
+package net.babypython.client.vm.classes.methods;
+
+import net.babypython.client.vm.constants.PythonMethodConstants;
+import net.babypython.client.vm.classes.special.objects.SymbolObject;
+import net.babypython.client.vm.vm.context.Context;
+
+public class MethodPerformSymbol extends MethodPerformString {
+
+    @Override
+    public Object perform(Context context, Object receiverObject, String selector, Object[] args) {
+        if (receiverObject instanceof SymbolObject)
+            return performSymbol(context, (SymbolObject) receiverObject, selector, args);
+        return super.perform(context, receiverObject, selector, args);
+    }
+
+    Object performSymbol(Context frame, SymbolObject symbolObject, String selector, Object[] args) {
+        switch (selector) {
+            case PythonMethodConstants.MessageAsString:
+                return symbolObject.asString();
+            default:
+                return super.perform(frame, symbolObject.asString(), selector, args);
+        }
+    }
+
+    public static MethodPerformSymbol getInstance() {
+        if (instance == null)
+            instance = new MethodPerformSymbol();
+        return instance;
+    }
+
+    static MethodPerformSymbol instance;
+}

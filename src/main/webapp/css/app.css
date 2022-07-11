@@ -1,0 +1,161 @@
+html,
+body {
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+}
+
+.balloonPanel {
+    padding: 3px 7px !important;
+    font-family: 'Comic Neue', cursive !important;
+    font-size: large !important;
+}
+
+.bottomLeftCorner {
+    border-radius: 0px 0px 0px 5px;
+}
+
+.bottomRightCorner {
+    border-radius: 0px 0px 5px 0px;
+}
+
+.buttonBarBorders {
+    border-top: 1px solid #cfcfcf;
+}
+
+.buttonBarTextBox {
+    font-family: monospace, sans !important;
+    padding: 0px 02px 0px 2px !important;
+}
+
+.gwt-Frame {
+    border: none !important;
+    margin: 0px !important;
+    outline: none !important;
+    padding: 0px !important;
+}
+
+.gwt-MenuBar-horizontal {
+    background: none !important;
+    border: none !important;
+}
+
+.gwt-MenuBarPopup {
+    z-index: 10000 !important;
+}
+
+.gwt-MenuItem {
+    user-select: none;
+}
+
+.headerBarBorders {
+    border-bottom: 1px solid #cfcfcf;
+    cursor: move;
+}
+
+.listPanel {
+    font-family: monospace, sans !important;
+    font-weight: bold !important;
+}
+
+.listPanel:focus {
+    outline: none !important;
+}
+
+.noselect {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.paper-background {
+    background-color: #e5e5f7;
+    opacity: 0.8;
+    background-image: linear-gradient(#a0a0a0 1.4000000000000001px, transparent 1.4000000000000001px), linear-gradient(90deg, #a0a0a0 1.4000000000000001px, transparent 1.4000000000000001px), linear-gradient(#a0a0a0 0.7000000000000001px, transparent 0.7000000000000001px), linear-gradient(90deg, #a0a0a0 0.7000000000000001px, #e5e5f7 0.7000000000000001px);
+    background-size: 35px 35px, 35px 35px, 7px 7px, 7px 7px;
+    background-position: -1.4000000000000001px -1.4000000000000001px, -1.4000000000000001px -1.4000000000000001px, -0.7000000000000001px -0.7000000000000001px, -0.7000000000000001px -0.7000000000000001px;
+}
+
+.policy-header {
+    font-size: large;
+    font-weight: bold;
+    font-family: "Courier New";
+}
+
+.policy-page {
+    padding: 7px;
+}
+
+.policy-text {
+    font-size: medium;
+    font-family: "Courier New";
+}
+
+textarea:focus,
+input:focus {
+    outline: none !important;
+}
+
+.textPanel {
+    resize: none !important;
+    color: #555 !important;
+    font-family: monospace, sans !important;
+    font-size: 1.1em !important;
+    font-weight: bold !important;
+    line-spacing: 0.9em !important;
+}
+
+.topLeftCorner {
+    border-radius: 5px 0px 0px 0px;
+}
+
+.topRightCorner {
+    border-radius: 0px 5px 0px 0px;
+}
+
+video:-webkit-full-page-media {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    max-height: 100%;
+    max-width: 100%;
+    margin: auto;
+}
+
+video {
+    object-fit: contain;
+}
+
+.windowBarButton {
+    background: none !important;
+    font-family: Arial Unicode MS, Arial, sans-serif !important;
+    font-weight: 700 !important;
+    font-size: 12px !important;
+    color: #555 !important;
+    border: none !important;
+    border-bottom: none !important;
+}
+
+.windowCloseButton {
+    font-family: Arial Unicode MS, Arial, sans-serif !important;
+    font-weight: bold !important;
+    font-size: 1.1em !important;
+    cursor: pointer !important;
+}
+
+.windowGrayStyle {
+    border: 2px solid #c0c0c0 !important;
+    border-radius: 7px !important;
+    padding: 0px !important;
+}
+
+.windowTitle {
+    font-family: Arial Unicode MS, Arial, sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+}
