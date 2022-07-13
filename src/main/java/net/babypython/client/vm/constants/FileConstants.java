@@ -24,8 +24,7 @@
 package net.babypython.client.vm.constants;
 
 public class FileConstants {
-    public static final String PythonIndexPath = "./python/scripts/index.json";
     public static final String ChickletFolder = "chicklet";
-    public static final String PythonFolder = "./python";
+    public static final String IndexJson = "index.json";
     public static final String ScriptsFolder = "scripts";
 }

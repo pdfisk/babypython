@@ -1,18 +1,18 @@
 /**
  * MIT License
- *
+ * <p>
  * Copyright (c) 2022 Peter Fisk
- *
+ * <p>
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
  * in the Software without restriction, including without limitation the rights
  * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
  * copies of the Software, and to permit persons to whom the Software is
  * furnished to do so, subject to the following conditions:
- *
+ * <p>
  * The above copyright notice and this permission notice shall be included in all
  * copies or substantial portions of the Software.
- *
+ * <p>
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -24,6 +24,7 @@
 package net.babypython.client.vm.workspace;
 
 import com.google.gwt.json.client.JSONObject;
+import net.babypython.client.ui.constants.UrlConstants;
 import net.babypython.client.ui.interfaces.IHandleStringListData;
 import net.babypython.client.ui.interfaces.IHandleTextValue;
 import net.babypython.client.ui.interfaces.IRequestHandler;
@@ -38,7 +39,7 @@ public class ProjectsLoader extends Logable {
 
     ProjectsLoader() {
         super();
-        basePath = FileConstants.PythonFolder + "/" + FileConstants.ScriptsFolder + "/" + FileConstants.ChickletFolder + "/";
+        basePath = UrlConstants.Projects + FileConstants.ChickletFolder + "/";
     }
 
     public void getFileText(String fileName, IHandleTextValue handleTextValue) {
@@ -53,7 +54,8 @@ public class ProjectsLoader extends Logable {
 
 
     public void loadProjects(IHandleStringListData stringListDataHandler) {
-        RequestUtil.getUrlText(FileConstants.PythonIndexPath, new IRequestHandler() {
+        String indexPath = UrlConstants.Projects + FileConstants.IndexJson;
+        RequestUtil.getUrlText(indexPath, new IRequestHandler() {
             @Override
             public void handleCallback(String jsonStr) {
                 JSONObject jsonObject = JsonUtil.decode(jsonStr);

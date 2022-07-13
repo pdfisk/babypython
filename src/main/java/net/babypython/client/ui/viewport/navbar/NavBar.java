@@ -71,14 +71,9 @@ public class NavBar extends GwtDockPanel implements ISessionState {
     }
 
     protected void addCenterMenus() {
-        addInfoMenu();
+        addDocsMenu();
         addToolsMenu();
-        addWindowsMenu();
-        if (AppConstants.SHOW_COMMUNITY)
-            addCommunityMenu();
-        if (AppConstants.SHOW_PRIVACY && !PwaUtil.isStandalone())
-            addPrivacyMenu();
-        if (AppConstants.SHOW_DONATE)
+            addForumMenu();
             addDonateMenu();
     }
 
@@ -129,113 +124,22 @@ public class NavBar extends GwtDockPanel implements ISessionState {
         centerMenuBar.addItem(new MenuItem("Donate", donateMenu));
     }
 
-    protected void addInfoMenu() {
-        MenuBar infoMenu = new MenuBar(true);
-        infoMenu.setAnimationEnabled(true);
-
-        infoMenu.addItem("Show Version", new Command() {
-            @Override
-            public void execute() {
-                onShowVersion();
-            }
-        });
-
-        infoMenu.addItem("Show Timestamp", new Command() {
-            @Override
-            public void execute() {
-                onShowTimestamp();
-            }
-        });
-
-        infoMenu.addSeparator();
-
-        infoMenu.addItem("Docs", new Command() {
+    protected void addDocsMenu() {
+        centerMenuBar.addItem("Docs", new Command() {
             @Override
             public void execute() {
                 onDocs();
             }
         });
-
-        infoMenu.addSeparator();
-
-        infoMenu.addItem("JavaDoc", new Command() {
-            @Override
-            public void execute() {
-                onJavaDoc();
-            }
-        });
-
-        centerMenuBar.addItem(new MenuItem("Info", infoMenu));
     }
 
-    protected void addCommunityMenu() {
-        MenuBar communityMenu = new MenuBar(true);
-        communityMenu.setAnimationEnabled(true);
-
-        if (AppConstants.SHOW_SUPPORT) {
-
-            communityMenu.addItem("Support Group", new Command() {
-                @Override
-                public void execute() {
-                    onSupportGroup();
-                }
-            });
-
-            communityMenu.addSeparator();
-        }
-
-        if (AppConstants.SHOW_FACEBOOK) {
-            communityMenu.addItem("Facebook", new Command() {
-                @Override
-                public void execute() {
-                    onFacebookBabyPython();
-                }
-            });
-        }
-
-        if (AppConstants.SHOW_TWITTER) {
-            communityMenu.addItem("Twitter", new Command() {
-                @Override
-                public void execute() {
-                    onTwitterBabyPython();
-                }
-            });
-        }
-
-        if (AppConstants.SHOW_YOUTUBE) {
-            communityMenu.addItem("YouTube", new Command() {
-                @Override
-                public void execute() {
-                    onYouTube();
-                }
-            });
-        }
-
-        if (AppConstants.SHOW_GITHUB) {
-
-            communityMenu.addSeparator();
-
-            communityMenu.addItem("GitHub", new Command() {
-                @Override
-                public void execute() {
-                    onGitHub();
-                }
-            });
-        }
-
-        if (AppConstants.SHOW_DESKTOP_APP && !PwaUtil.isStandalone()) {
-
-            communityMenu.addSeparator();
-
-            communityMenu.addItem("Desktop App", new Command() {
-                @Override
-                public void execute() {
-                    onDesktopApp();
-                }
-            });
-        }
-
-        centerMenuBar.addItem(new MenuItem("Community", communityMenu));
+    protected void addForumMenu() {
+        centerMenuBar.addItem(new MenuItem("Forum", new Command() {
+            @Override
+            public void execute() {
+                onForum();
+            }
+        }));
     }
 
     protected void addToolsMenu() {
@@ -264,6 +168,36 @@ public class NavBar extends GwtDockPanel implements ISessionState {
                 onTranscript();
             }
         });
+
+        toolsMenu.addSeparator();
+
+        MenuBar windowsMenu = new MenuBar(true);
+        windowsMenu.setAnimationEnabled(true);
+
+        windowsMenu.addItem("Minimize All Windows", new Command() {
+            @Override
+            public void execute() {
+                onMinimizeAllWindows();
+            }
+        });
+
+        windowsMenu.addItem("Restore All Windows", new Command() {
+            @Override
+            public void execute() {
+                onRestoreAllWindows();
+            }
+        });
+
+        windowsMenu.addSeparator();
+
+        windowsMenu.addItem("Close All Windows", new Command() {
+            @Override
+            public void execute() {
+                onCloseAllWindows();
+            }
+        });
+
+        toolsMenu.addItem(new MenuItem("Windows", windowsMenu));
 
         centerMenuBar.addItem(new MenuItem(ViewportConstants.ToolsMenu, toolsMenu));
     }
@@ -390,8 +324,8 @@ public class NavBar extends GwtDockPanel implements ISessionState {
         DomUtils.openBrowserTab(UrlConstants.Patreon);
     }
 
-    void onDesktopApp() {
-        DomUtils.openBrowserTab(UrlConstants.Store);
+    void onForum() {
+        DomUtils.openBrowserTab(UrlConstants.Forum);
     }
 
     void onPrivacyPolicy() {

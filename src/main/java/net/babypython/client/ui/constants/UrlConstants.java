@@ -27,13 +27,14 @@ public class UrlConstants {
 
     public static final String Docs = "https://docs.babypython.net";
     public static final String Facebook = "https://www.facebook.com/Baby-Python-107690835254068";
+    public static final String Forum = "https://baby-python.freeforums.net/";
     public static final String GitHub = "https://github.com/pdfisk/babypython";
     public static final String JavaDoc = "https://javadoc.babypython.net";
     public static final String Patreon = "https://patreon.com/babypython";
+    public static final String Projects = "https://babypython-projects.pages.dev/";
     public static final String Quora = "https://babypython.quora.com/";
     public static final String Reddit = "https://www.reddit.com/r/babypython/";
     public static final String Spring = "https://baby-python.creator-spring.com/";
-    public static final String Store = "https://www.microsoft.com/store/apps/9P4MM0ZSJ4L1";
     public static final String Support = "https://groups.google.com/g/baby-python";
     public static final String Twitter = "https://twitter.com/hashtag/babypython";
     public static final String YouTube = "https://www.youtube.com/channel/UCb4P_JqclyhFrPhr5TVqHRg";

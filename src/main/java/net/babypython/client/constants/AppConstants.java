@@ -37,9 +37,9 @@ public class AppConstants {
     public static final boolean SHOW_TWITTER = true;
     public static final boolean SHOW_YOUTUBE = true;
     //
-    public static final String TIMESTAMP = "2022-07-11T20:19:04Z";
+    public static final String TIMESTAMP = "2022-07-13T04:23:55Z";
     public static final String VERSION = "1.0.0";
-    public static final String BUILD_NUMBER = "13";
+    public static final String BUILD_NUMBER = "15";
 }
 
 // https://www.utctime.net/gmt-time-now
