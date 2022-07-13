@@ -25,21 +25,12 @@ package net.babypython.client.constants;
 
 public class AppConstants {
     public static final boolean SHOW_DEBUG = false;
-    public static final boolean SHOW_COMMUNITY = true;
-    public static final boolean SHOW_DONATE = true;
-    public static final boolean SHOW_DESKTOP_APP = true;
-    public static final boolean SHOW_FACEBOOK = true;
-    public static final boolean SHOW_GITHUB = true;
-    public static final boolean SHOW_SUPPORT = true;
     public static final boolean SHOW_MERCHANDISE = true;
     public static final boolean SHOW_PATREON = true;
-    public static final boolean SHOW_PRIVACY = true;
-    public static final boolean SHOW_TWITTER = true;
-    public static final boolean SHOW_YOUTUBE = true;
     //
-    public static final String TIMESTAMP = "2022-07-13T04:23:55Z";
+    public static final String TIMESTAMP = "2022-07-13T15:13:22Z";
     public static final String VERSION = "1.0.0";
-    public static final String BUILD_NUMBER = "15";
+    public static final String BUILD_NUMBER = "16";
 }
 
 // https://www.utctime.net/gmt-time-now
