@@ -75,6 +75,7 @@ public class NavBar extends GwtDockPanel implements ISessionState {
         addToolsMenu();
         addForumMenu();
         addGitHubMenu();
+        addYouTubeMenu();
         addDonateMenu();
     }
 
@@ -148,6 +149,15 @@ public class NavBar extends GwtDockPanel implements ISessionState {
             @Override
             public void execute() {
                 onGitHub();
+            }
+        }));
+    }
+
+    protected void addYouTubeMenu() {
+        centerMenuBar.addItem(new MenuItem("YouTube", new Command() {
+            @Override
+            public void execute() {
+                onYouTube();
             }
         }));
     }

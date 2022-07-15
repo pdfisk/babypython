@@ -31,7 +31,7 @@ public class MathExpr extends NumberExpr {
 
     public static Object div(Object v1, Object v2) {
         if (v1 instanceof Integer)
-            return IntOps.div((Integer) v1, v2);
+            return FloatOps.div((Integer) v1, v2);
         else if (v1 instanceof Double)
             return FloatOps.div((Double) v1, v2);
         Logable.err("MathExpr div", v1.getClass().getSimpleName(), v2.getClass().getSimpleName());
@@ -40,7 +40,7 @@ public class MathExpr extends NumberExpr {
 
     public static Object floorDiv(Object v1, Object v2) {
         if (v1 instanceof Integer)
-            return IntOps.floorDiv((Integer) v1, v2);
+            return FloatOps.floorDiv((Integer) v1, v2);
         else if (v1 instanceof Double)
             return FloatOps.floorDiv((Double) v1, v2);
         Logable.err("MathExpr floorDiv", v1.getClass().getSimpleName(), v2.getClass().getSimpleName());
@@ -58,7 +58,7 @@ public class MathExpr extends NumberExpr {
 
     public static Object mod(Object v1, Object v2) {
         if (v1 instanceof Integer)
-            return IntOps.mod((Integer) v1, v2);
+            return FloatOps.mod((Integer) v1, v2);
         else if (v1 instanceof Double)
             return FloatOps.mod((Double) v1, v2);
         Logable.err("MathExpr mod", v1.getClass().getSimpleName(), v2.getClass().getSimpleName());

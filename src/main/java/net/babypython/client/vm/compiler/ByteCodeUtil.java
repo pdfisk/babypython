@@ -93,8 +93,6 @@ public class ByteCodeUtil extends Logable {
                 return "PopIntoLocalVariable";
             case ByteCodeConstants.OpPushArray:
                 return "PushArray";
-            case ByteCodeConstants.OpPushBlock:
-                return "PushBlock";
             case ByteCodeConstants.OpPushFalse:
                 return "PushFalse";
             case ByteCodeConstants.OpPushGlobalVariable:
@@ -109,8 +107,6 @@ public class ByteCodeUtil extends Logable {
                 return "PushSelf";
             case ByteCodeConstants.OpPushTrue:
                 return "PushTrue";
-            case ByteCodeConstants.OpReturnFromBlock:
-                return "ReturnFromBlock";
             case ByteCodeConstants.OpReturnFromMethod:
                 return "ReturnFromMethod";
             case ByteCodeConstants.OpSendMessage:
@@ -179,24 +175,6 @@ public class ByteCodeUtil extends Logable {
                 return 3;
             default:
                 return 1;
-        }
-    }
-
-    public static void copyByteCodesForBlock(int start, IntegerList sourceByteCodes, IntegerList blockByteCodes) {
-        for (int pc = start; pc < sourceByteCodes.size(); ) {
-            int bc = sourceByteCodes.get(pc++);
-            blockByteCodes.add(bc);
-            if (bc == ByteCodeConstants.OpReturnFromBlock) {
-                blockByteCodes.add(ByteCodeConstants.OpReturnFromMethod);
-                break;
-            }
-            if (pcInc(pc) > 1) {
-                int n = pcInc(pc) - 1;
-                for (int i = 0; i < n; i++)
-                    blockByteCodes.add(sourceByteCodes.get(pc++));
-            }
-            if (pc >= sourceByteCodes.size())
-                break;
         }
     }
 

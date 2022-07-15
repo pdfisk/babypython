@@ -262,9 +262,6 @@ public class VmProcess extends Logable {
                 case ByteCodeConstants.OpPushAssociation:
                     opPushAssociation();
                     break;
-                case ByteCodeConstants.OpPushBlock:
-                    opPushBlock();
-                    break;
                 case ByteCodeConstants.OpPushDictionary:
                     opPushDictionary();
                     break;
@@ -303,9 +300,6 @@ public class VmProcess extends Logable {
                     break;
                 case ByteCodeConstants.OpPythonInstantiateType:
                     opPythonCallInstantiateType();
-                    break;
-                case ByteCodeConstants.OpReturnFromBlock:
-                    opReturnFromBlock();
                     break;
                 case ByteCodeConstants.OpReturnFromMethod:
                     opReturnFromMethod();
@@ -369,68 +363,68 @@ public class VmProcess extends Logable {
     }
 
     void opBinaryDivide() {
-        Object value1 = pop();
         Object value2 = pop();
+        Object value1 = pop();
         push(MathExpr.div(value1, value2));
     }
 
     void opBinaryMinus() {
-        Object value1 = pop();
         Object value2 = pop();
+        Object value1 = pop();
         push(MathExpr.minus(value1, value2));
     }
 
     void opBinaryMod() {
-        Object value1 = pop();
         Object value2 = pop();
+        Object value1 = pop();
         push(MathExpr.mod(value1, value2));
     }
 
     void opBinaryMultiply() {
-        Object value1 = pop();
         Object value2 = pop();
+        Object value1 = pop();
         push(MathExpr.mult(value1, value2));
     }
 
     void opBinaryPlus() {
-        Object value1 = pop();
         Object value2 = pop();
+        Object value1 = pop();
         push(MathExpr.plus(value1, value2));
     }
 
     void opCompEq() {
-        Object value1 = pop();
         Object value2 = pop();
+        Object value1 = pop();
         push(CompExpr.eq(value1, value2));
     }
 
     void opCompGe() {
-        Object value1 = pop();
         Object value2 = pop();
+        Object value1 = pop();
         push(CompExpr.ge(value1, value2));
     }
 
     void opCompGt() {
-        Object value1 = pop();
         Object value2 = pop();
+        Object value1 = pop();
         push(CompExpr.gt(value1, value2));
     }
 
     void opCompLe() {
-        Object value1 = pop();
         Object value2 = pop();
+        Object value1 = pop();
         push(CompExpr.le(value1, value2));
     }
 
     void opCompLt() {
-        Object value1 = pop();
         Object value2 = pop();
+        Object value1 = pop();
         push(CompExpr.lt(value1, value2));
     }
 
     void opCompNeq() {
-        Object value1 = pop();
         Object value2 = pop();
+        Object value1 = pop();
         push(CompExpr.neq(value1, value2));
     }
 
@@ -525,10 +519,6 @@ public class VmProcess extends Logable {
         push(AssociationClass.getInstance().createInstance(key, value));
     }
 
-    void opPushBlock() {
-        push(new BlockObject(this, getPc() + 2));
-    }
-
     void opPushDictionary() {
         int nItems = nextByteCode();
         DictionaryObject dictionaryObject = DictionaryClass.getInstance().createInstance();
@@ -594,17 +584,6 @@ public class VmProcess extends Logable {
 
     void opPythonCallInstantiateType() {
         pythonInstantiateType();
-    }
-
-    void opReturnFromBlock() {
-        // for forked methods only
-        if (currentContext.isHomeContext()) {
-            opReturnFromMethod();
-            return;
-        }
-        lastValue = peek();
-        setCurrentContext(currentContext.getOuterContext());
-        push(lastValue);
     }
 
     void opReturnFromMethod() {

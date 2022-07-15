@@ -21,29 +21,11 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package net.babypython.client.python.parser.ast;
+package net.babypython.client.vm.containers.dictionaries;
 
-import net.babypython.client.python.antlr.Python3Parser;
-import net.babypython.client.python.constants.NodeConstants;
-import net.babypython.client.python.parser.Visitor;
-import net.babypython.client.vm.compiler.CompilerUtil;
+import net.babypython.client.vm.stores.projects.ProjectRecord;
 
-public class ComparisonNode extends AstNode {
+import java.util.HashMap;
 
-    public ComparisonNode(Python3Parser.ComparisonContext ctx, Visitor visitor) {
-        super(NodeConstants._comparison, ctx, visitor);
-    }
-
-    @Override
-    public void generateByteCode(CompilerUtil compilerUtil) {
-        if (getChildCount() == 3) {
-            generateLineNumber(compilerUtil);
-            // args
-            getChild(0).generateByteCode(compilerUtil);
-            getChild(2).generateByteCode(compilerUtil);
-            // operator
-            getChild(1).generateByteCode(compilerUtil);
-        } else
-            super.generateByteCode(compilerUtil);
-    }
+public class ProjectDictionary extends HashMap<String, ProjectRecord> {
 }

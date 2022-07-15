@@ -31,14 +31,14 @@ import net.babypython.client.ui.interfaces.IHandleStringListData;
 import net.babypython.client.ui.interfaces.IHandleTextValue;
 import net.babypython.client.ui.widgets.monaco.PythonEditor;
 import net.babypython.client.vm.containers.lists.StringList;
-import net.babypython.client.vm.workspace.ProjectsLoader;
+import net.babypython.client.vm.stores.projects.ProjectsStore;
 
 public class ProjectsPanel extends GwtSplitLayoutPanel implements IAfterResize, IHandleStringListData, IHandleTextValue {
 
     public ProjectsPanel(GwtWindow parentWindow) {
         super();
         this.parentWindow = parentWindow;
-        projectsLoader = ProjectsLoader.getInstance();
+        projectsLoader = ProjectsStore.getInstance();
         lhsProjectsPanel = new ProjectsListPanel(this.parentWindow, this);
         rhsPythonEditor = new PythonEditor(this.parentWindow);
         addWest(lhsProjectsPanel, this.parentWindow.defaultContentWidth() * 0.3);
@@ -90,6 +90,6 @@ public class ProjectsPanel extends GwtSplitLayoutPanel implements IAfterResize, 
 
     GwtWindow parentWindow;
     ProjectsListPanel lhsProjectsPanel;
-    ProjectsLoader projectsLoader;
+    ProjectsStore projectsLoader;
     PythonEditor rhsPythonEditor;
 }

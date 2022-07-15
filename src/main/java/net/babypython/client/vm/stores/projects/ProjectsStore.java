@@ -21,56 +21,66 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package net.babypython.client.vm.workspace;
+package net.babypython.client.vm.stores.projects;
 
+import com.google.gwt.json.client.JSONArray;
 import com.google.gwt.json.client.JSONObject;
 import net.babypython.client.ui.constants.UrlConstants;
 import net.babypython.client.ui.interfaces.IHandleStringListData;
 import net.babypython.client.ui.interfaces.IHandleTextValue;
 import net.babypython.client.ui.interfaces.IRequestHandler;
-import net.babypython.client.vm.constants.FileConstants;
-import net.babypython.client.vm.containers.lists.StringList;
-import net.babypython.client.ui.util.FileUtil;
-import net.babypython.client.vm.util.JsonUtil;
 import net.babypython.client.ui.util.Logable;
+import net.babypython.client.vm.containers.dictionaries.ProjectDictionary;
+import net.babypython.client.vm.containers.lists.StringList;
+import net.babypython.client.vm.util.JsonUtil;
 import net.babypython.client.vm.util.requests.RequestUtil;
 
-public class ProjectsLoader extends Logable {
+public class ProjectsStore extends Logable {
 
-    ProjectsLoader() {
+    ProjectsStore() {
         super();
-        basePath = UrlConstants.Projects + FileConstants.ChickletFolder + "/";
+        projectDictionary = new ProjectDictionary();
     }
 
-    public void getFileText(String fileName, IHandleTextValue handleTextValue) {
-        String path = basePath + fileName + ".py";
-        RequestUtil.getUrlText(path, new IRequestHandler() {
-            @Override
-            public void handleCallback(String value) {
-                handleTextValue.handleTextValue(value);
-            }
-        });
+    public void getFileText(String name, IHandleTextValue handler) {
+        if (!projectDictionary.containsKey(name))
+            return;
+        String code = projectDictionary.get(name).code;
+        handler.handleTextValue(code);
     }
-
 
     public void loadProjects(IHandleStringListData stringListDataHandler) {
-        String indexPath = UrlConstants.Projects + FileConstants.IndexJson;
-        RequestUtil.getUrlText(indexPath, new IRequestHandler() {
+        projectDictionary.clear();
+        RequestUtil.getUrlText(UrlConstants.Projects, new IRequestHandler() {
             @Override
             public void handleCallback(String jsonStr) {
-                JSONObject jsonObject = JsonUtil.decode(jsonStr);
-                StringList fileNames = FileUtil.getChickletFileNames(jsonObject);
-                stringListDataHandler.handleStringListData(fileNames);
+                JSONArray jsonArray = JsonUtil.decode(jsonStr).isArray();
+                if (jsonArray != null) {
+                    for (int i = 0; i < jsonArray.size(); i++)
+                        loadProject(jsonArray.get(i).isObject());
+                }
+                StringList stringList = new StringList();
+                for (String name : projectDictionary.keySet())
+                    stringList.add(name);
+                stringList.sort();
+                stringListDataHandler.handleStringListData(stringList);
             }
         });
     }
 
-    public static ProjectsLoader getInstance() {
+    void loadProject(JSONObject jsonObject) {
+        if (jsonObject == null)
+            return;
+        ProjectRecord projectRecord = new ProjectRecord(jsonObject);
+        projectDictionary.put(projectRecord.name, projectRecord);
+    }
+
+    public static ProjectsStore getInstance() {
         if (instance == null)
-            instance = new ProjectsLoader();
+            instance = new ProjectsStore();
         return instance;
     }
 
-    String basePath;
-    static ProjectsLoader instance;
+    ProjectDictionary projectDictionary;
+    static ProjectsStore instance;
 }

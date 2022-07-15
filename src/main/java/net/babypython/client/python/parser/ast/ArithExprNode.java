@@ -61,9 +61,4 @@ public class ArithExprNode extends OperatorNode {
         return child.isTerm();
     }
 
-//    @Override
-//    protected Expression createStatement(String operator, Expression lhsStatement, Expression rhsStatement) {
-//        return new AddExpression(operator, lhsStatement, rhsStatement);
-//    }
-
 }

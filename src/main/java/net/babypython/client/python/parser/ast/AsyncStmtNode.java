@@ -33,13 +33,4 @@ public class AsyncStmtNode extends AstNode {
         super(NodeConstants._async_stmt, ctx, visitor);
     }
 
-//    @Override
-//    public Expression generateStatementWithCollection(ExpressionList statements) {
-//        for (int i = 0; i < getChildCount(); i++) {
-//            AstNode child = getChild(i);
-//            child.setIsAsync();
-//        }
-//        return super.generateStatementWithCollection(statements);
-//    }
-
 }

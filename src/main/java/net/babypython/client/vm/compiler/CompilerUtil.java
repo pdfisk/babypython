@@ -223,11 +223,6 @@ public class CompilerUtil extends Logable {
         recordingStack.recordPush();
     }
 
-    public void opPushBlock() {
-        addByteCode(ByteCodeConstants.OpPushBlock);
-        recordingStack.recordPush();
-    }
-
     public void opPushDictionary(int nItems) {
         addByteCode(ByteCodeConstants.OpPushDictionary);
         addByteCode(nItems);
@@ -305,11 +300,6 @@ public class CompilerUtil extends Logable {
         addByteCode(getLiteralIndex(clsName));
         addByteCode(nArgs);
         recordingStack.recordPop(nArgs);
-        recordingStack.recordPush();
-    }
-
-    public void opReturnFromBlock() {
-        addByteCode(ByteCodeConstants.OpReturnFromBlock);
         recordingStack.recordPush();
     }
 

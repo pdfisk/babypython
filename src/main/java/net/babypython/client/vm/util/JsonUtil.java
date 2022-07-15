@@ -23,16 +23,15 @@
  */
 package net.babypython.client.vm.util;
 
-import com.google.gwt.json.client.JSONObject;
-import com.google.gwt.json.client.JSONParser;
+import com.google.gwt.json.client.*;
 
 public class JsonUtil {
 
-    public static JSONObject decode(String jsonStr) {
-        return JSONParser.parseStrict(jsonStr).isObject();
+    public static JSONValue decode(String jsonStr) {
+        return JSONParser.parseStrict(jsonStr);
     }
 
-    public static JSONObject decode64(String jsonStr64) {
+    public static JSONValue decode64(String jsonStr64) {
         try {
             jsonStr64 = jsonStr64.trim();
             String jsonStr = decodeBase64(jsonStr64);
@@ -44,6 +43,20 @@ public class JsonUtil {
 
     public static String encode64(JSONObject jsonObject) {
         return encodeBase64(jsonObject.toString());
+    }
+
+    public static int getInt(JSONValue jsonValue) {
+        JSONNumber jsonNumber = jsonValue.isNumber();
+        if (jsonNumber != null)
+            return (int) jsonNumber.doubleValue();
+        return 0;
+    }
+
+    public static String getString(JSONValue jsonValue) {
+        JSONString jsonString = jsonValue.isString();
+        if (jsonString != null)
+            return jsonString.stringValue();
+        return "";
     }
 
     native static String decodeBase64(String base64String) /*-{

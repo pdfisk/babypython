@@ -36,9 +36,4 @@ public class OrTestNode extends OperatorNode {
             operators.add(operator.getText());
     }
 
-//    @Override
-//    protected Expression createStatement(String operator, Expression lhsStatement, Expression rhsStatement) {
-//        return new BinaryLogicalExpression(operator, lhsStatement, rhsStatement);
-//    }
-
 }
