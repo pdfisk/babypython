@@ -175,7 +175,7 @@ public class WorkbenchWindow extends GwtWindow {
     }
 
     void onLeftBlocks() {
-//        workbenchPanel.showLhsBlocks();
+        workbenchPanel.showLhsBlocks();
     }
 
     void onLeftEditor() {

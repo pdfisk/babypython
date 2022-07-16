@@ -33,6 +33,7 @@ import net.babypython.client.ui.gwt.widgets.GwtTranscriptPanel;
 import net.babypython.client.ui.gwt.window.GwtWindow;
 import net.babypython.client.ui.interfaces.IAfterResize;
 import net.babypython.client.ui.interfaces.IHandleLineChanged;
+import net.babypython.client.ui.widgets.blocks.BlocksPanel;
 import net.babypython.client.ui.widgets.board.BoardPanel;
 import net.babypython.client.ui.widgets.monaco.PythonEditor;
 import net.babypython.client.ui.windows.workbench.WorkbenchWindow;
@@ -61,12 +62,12 @@ public class WorkbenchPanel extends GwtSplitLayoutPanel implements IAfterResize 
 
     @Override
     public void afterResize() {
-//        if (blocksPanel != null)
-//            blocksPanel.onResize();
-//        if (lhsStack != null)
-//            lhsStack.onResize();
-//        if (rhsStack != null)
-//            rhsStack.onResize();
+        if (lhsBlocksPanel != null)
+            lhsBlocksPanel.onResize();
+        if (lhsBlocksPanel != null)
+            lhsBlocksPanel.onResize();
+        if (lhsBlocksPanel != null)
+            lhsBlocksPanel.onResize();
     }
 
     public IStdOut asStdOut() {
@@ -86,14 +87,14 @@ public class WorkbenchPanel extends GwtSplitLayoutPanel implements IAfterResize 
     }
 
     void buildLhsStack() {
-//        lhsBlocksPanel = new BlocksPanel("Demo");
+        lhsBlocksPanel = new BlocksPanel("Demo");
         lhsStackWrapper = new ResizeLayoutPanel();
         lhsDeckLayoutPanel = new DeckLayoutPanel();
-//        lhsDeckLayoutPanel.add(lhsBlocksPanel);
+        lhsDeckLayoutPanel.add(lhsBlocksPanel);
         lhsDeckLayoutPanel.add(lhsPythonEditor);
         lhsStackWrapper.setWidget(lhsDeckLayoutPanel);
         setWidgetMinSize(lhsStackWrapper, 0);
-//        showLhsBlocks();
+        showLhsEditor();
     }
 
     void buildRhsStack() {
@@ -185,9 +186,9 @@ public class WorkbenchPanel extends GwtSplitLayoutPanel implements IAfterResize 
         setWidgetSize(lhsStackWrapper, getLhsDynamicSize());
     }
 
-//    public void showLhsBlocks() {
-//        lhsDeckLayoutPanel.showWidget(lhsBlocksPanel);
-//    }
+    public void showLhsBlocks() {
+        lhsDeckLayoutPanel.showWidget(lhsBlocksPanel);
+    }
 
     public void showLhsEditor() {
         lhsDeckLayoutPanel.showWidget(lhsPythonEditor);
@@ -213,7 +214,7 @@ public class WorkbenchPanel extends GwtSplitLayoutPanel implements IAfterResize 
         rhsDeckLayoutPanel.showWidget(rhsTranscriptPanel);
     }
 
-//    BlocksPanel lhsBlocksPanel;
+    BlocksPanel lhsBlocksPanel;
     DeckLayoutPanel lhsDeckLayoutPanel;
     PythonEditor lhsPythonEditor;
     ResizeLayoutPanel lhsStackWrapper;

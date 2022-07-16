@@ -37,5 +37,9 @@ public class BlocksPanel extends ResizeLayoutPanel {
         return blocksHTMLPanel;
     }
 
+    public void onResize() {
+        getBlocksHTMLPanel().onResize();
+    }
+
     BlocksHTMLPanel blocksHTMLPanel;
 }
