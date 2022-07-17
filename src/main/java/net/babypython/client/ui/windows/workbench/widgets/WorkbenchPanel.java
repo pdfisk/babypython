@@ -1,18 +1,18 @@
 /**
  * MIT License
- *
+ * <p>
  * Copyright (c) 2022 Peter Fisk
- *
+ * <p>
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
  * in the Software without restriction, including without limitation the rights
  * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
  * copies of the Software, and to permit persons to whom the Software is
  * furnished to do so, subject to the following conditions:
- *
+ * <p>
  * The above copyright notice and this permission notice shall be included in all
  * copies or substantial portions of the Software.
- *
+ * <p>
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -33,6 +33,7 @@ import net.babypython.client.ui.gwt.widgets.GwtTranscriptPanel;
 import net.babypython.client.ui.gwt.window.GwtWindow;
 import net.babypython.client.ui.interfaces.IAfterResize;
 import net.babypython.client.ui.interfaces.IHandleLineChanged;
+import net.babypython.client.ui.util.Logable;
 import net.babypython.client.ui.widgets.blocks.BlocksPanel;
 import net.babypython.client.ui.widgets.board.BoardPanel;
 import net.babypython.client.ui.widgets.monaco.PythonEditor;
@@ -40,6 +41,7 @@ import net.babypython.client.ui.windows.workbench.WorkbenchWindow;
 import net.babypython.client.vm.constants.RunStyle;
 import net.babypython.client.vm.containers.dictionaries.LocalDictionary;
 import net.babypython.client.vm.vm.interfaces.IStdOut;
+import org.apache.juli.logging.Log;
 
 public class WorkbenchPanel extends GwtSplitLayoutPanel implements IAfterResize {
 
@@ -88,7 +90,7 @@ public class WorkbenchPanel extends GwtSplitLayoutPanel implements IAfterResize 
 
     void buildLhsStack() {
         lhsBlocksPanel = new BlocksPanel("Demo");
-        lhsStackWrapper = new ResizeLayoutPanel();
+        lhsStackWrapper = new LhsStackWrapper(this);
         lhsDeckLayoutPanel = new DeckLayoutPanel();
         lhsDeckLayoutPanel.add(lhsBlocksPanel);
         lhsDeckLayoutPanel.add(lhsPythonEditor);
@@ -100,7 +102,7 @@ public class WorkbenchPanel extends GwtSplitLayoutPanel implements IAfterResize 
     void buildRhsStack() {
         rhsBoardPanel = new BoardPanel();
         rhsTranscriptPanel = new GwtTranscriptPanel();
-        rhsStackWrapper = new ResizeLayoutPanel();
+        rhsStackWrapper = new RhsStackWrapper(this);
         rhsDeckLayoutPanel = new DeckLayoutPanel();
         rhsDeckLayoutPanel.add(rhsBoardPanel);
         rhsDeckLayoutPanel.add(rhsPythonEditor);
@@ -124,6 +126,10 @@ public class WorkbenchPanel extends GwtSplitLayoutPanel implements IAfterResize 
 
     public void clearTranscript() {
         rhsTranscriptPanel.clear();
+    }
+
+    public void debug() {
+        pythonApi.debugScript(getCode(), asStdOut());
     }
 
     protected int getClientWidth() {
@@ -154,8 +160,12 @@ public class WorkbenchPanel extends GwtSplitLayoutPanel implements IAfterResize 
         t.schedule(0);
     }
 
-    public void debug() {
-        pythonApi.debugScript(getCode(), asStdOut());
+    public void onResizeLeft() {
+        lhsBlocksPanel.onResize();
+    }
+
+    public void onResizeRight() {
+//        rhsBoardPanel.afterResize();
     }
 
     public void run() {
