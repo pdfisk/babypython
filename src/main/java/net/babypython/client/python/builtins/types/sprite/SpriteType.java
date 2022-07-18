@@ -23,9 +23,7 @@
  */
 package net.babypython.client.python.builtins.types.sprite;
 
-import net.babypython.client.python.builtins.types.sprite.methods.SpriteMoveBy;
-import net.babypython.client.python.builtins.types.sprite.methods.SpriteMoveTo;
-import net.babypython.client.python.builtins.types.sprite.methods.SpriteSay;
+import net.babypython.client.python.builtins.types.sprite.methods.*;
 import net.babypython.client.python.core.builtin.PythonBuiltinType;
 
 public abstract class SpriteType extends PythonBuiltinType {
@@ -37,9 +35,11 @@ public abstract class SpriteType extends PythonBuiltinType {
 
     @Override
     protected void addBuiltinMethods() {
+        addMethod(new SpriteHide());
         addMethod(new SpriteMoveBy());
         addMethod(new SpriteMoveTo());
         addMethod(new SpriteSay());
+        addMethod(new SpriteShow());
     }
 
     protected abstract String defaultImagePath();

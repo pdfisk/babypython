@@ -43,13 +43,8 @@ public class PythonSpriteObject extends PythonObject {
         setCol(0);
         setRow(0);
         initializeImageUrl();
-        attachToBoard();
         if (args.length > 0)
             spriteName = ArgsUtil.getStringArg(args);
-    }
-
-    protected void attachToBoard() {
-        showTile();
     }
 
     public void clearTile() {

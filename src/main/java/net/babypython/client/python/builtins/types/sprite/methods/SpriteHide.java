@@ -21,12 +21,28 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package net.babypython.client.python.constants;
+package net.babypython.client.python.builtins.types.sprite.methods;
 
-public class PythonBuiltinMethodNames {
-    public static final String BuiltinMethodHide = "hide";
-    public static final String BuiltinMethodMoveBy = "move_by";
-    public static final String BuiltinMethodMoveTo = "move_to";
-    public static final String BuiltinMethodSay = "say";
-    public static final String BuiltinMethodShow = "show";
+import net.babypython.client.python.builtins.objects.PythonSpriteObject;
+import net.babypython.client.python.constants.PythonBuiltinMethodNames;
+import net.babypython.client.python.core.PythonMethod;
+import net.babypython.client.python.core.PythonObject;
+import net.babypython.client.vm.util.ArgsUtil;
+import net.babypython.client.vm.vm.context.Context;
+
+public class SpriteHide extends PythonMethod {
+
+    public SpriteHide() {
+        super(PythonBuiltinMethodNames.BuiltinMethodHide);
+    }
+
+    @Override
+    public boolean invoke(Context context, PythonObject self, Object... args) {
+        if (!(self instanceof PythonSpriteObject))
+            return false;
+        PythonSpriteObject pythonSpriteObject = (PythonSpriteObject) self;
+        pythonSpriteObject.clearTile();
+        return true;
+    }
+
 }

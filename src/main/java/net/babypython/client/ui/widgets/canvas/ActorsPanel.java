@@ -65,8 +65,8 @@ public class ActorsPanel extends GwtCanvas {
         addImage(SpriteConstants.Fence, x + 125, y, 0.5);
         addImage(SpriteConstants.OrangeDucklingLeft, x = 5, y += 125, 0.5);
         addImage(SpriteConstants.OrangeDucklingRight, x += 125, y, 0.5);
-        addImage(SpriteConstants.PaleChickenLeft, x += 125, y, 0.5);
-        addImage(SpriteConstants.PaleChickenRight, x + 125, y, 0.5);
+        addImage(SpriteConstants.LightHenLeft, x += 125, y, 0.5);
+        addImage(SpriteConstants.LightHenRight, x + 125, y, 0.5);
         addImage(SpriteConstants.Pump, x = 5, y += 145, 0.25);
         addImage(SpriteConstants.PumpWithDog, x += 145, y, 0.3);
         addImage(SpriteConstants.PumpWithDogAndDuckling, x + 165, y, 0.3);
