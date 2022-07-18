@@ -25,7 +25,7 @@ package net.babypython.client.ui.constants;
 
 public class ImageConstants {
     public static final String babyPythonUrl = "images/baby_python.png";
-    public static final String logoUrl = "images/baby_python_title_165x25.png"; //"icons/logo.png";
+    public static final String logoUrl = "images/baby_python_title_269x40.png";
     public static final String windowCloseBtnUrl = "icons/img/close.png";
     public static final String windowMaxBtnUrl = "icons/img/maximize.png";
     public static final String windowMinBtnUrl = "icons/img/minimize.png";

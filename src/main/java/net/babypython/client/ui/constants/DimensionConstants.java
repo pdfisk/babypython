@@ -30,15 +30,15 @@ public class DimensionConstants {
     public static final int GwtWindowEdgeWidth = 7;
 
     // navbar
-    public static final int NavBarButtonSize = 11;
+    public static final int NavBarButtonSize = 15;
     public static final int NavBarButtonMarginRight = 10;
     public static final int NavBarCenterMenuBarWidth = 495;
     public static final int NavBarFileMenuWidth = 55;
-    public static final int NavBarHeight = 30;
+    public static final int NavBarHeight = 45;
     public static final int NavBarBorderHeight = 2;
-    public static final int NavBarLogoHeight = 25;
+    public static final int NavBarLogoHeight = 40;
     public static final int NavBarLogoMarginRight = 55;
-    public static final int NavBarLogoWidth = 165;
+    public static final int NavBarLogoWidth = 269;
     public static final int NavBarPaddingLeftRight = 15;
 
     // tab panel
