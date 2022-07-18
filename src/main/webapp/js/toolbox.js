@@ -34,20 +34,28 @@ Blockly.Toolboxes.STANDARD_TOOLBOX = {
         }],
         "name": "Logic",
         "colour": "#5ba58c"
+    },{
+        "kind": "CATEGORY",
+        "contents": [{
+            "kind": "BLOCK",
+            "type": "controls_while"
+        }, {
+            "kind": "BLOCK",
+            "type": "sleep"
+        }],
+        "name": "Control Flow",
+        "colour": "#5ba58c"
     }, {
         "kind": "CATEGORY",
         "contents": [{
             "kind": "BLOCK",
-            "type": "create_chick"
+            "type": "create_actor"
         }, {
             "kind": "BLOCK",
             "type": "show_actor"
         }, {
             "kind": "BLOCK",
-            "type": "move_actor_to_x_y"
-        }, {
-            "kind": "BLOCK",
-            "type": "sleep"
+            "type": "move_actor_to_row_column"
         }],
         "name": "Actors",
         "colour": "#9fa55b"

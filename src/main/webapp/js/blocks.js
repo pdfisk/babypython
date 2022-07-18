@@ -1,8 +1,33 @@
-Blockly.Blocks['create_chick'] = {
+Blockly.Blocks['controls_while'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField('while');
+        this.appendValueInput("cond")
+            .setCheck("Boolean");
+        this.appendDummyInput()
+            .appendField(':');
+        this.appendStatementInput('DO')
+            .appendField('');
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour("#644A9E");
+        this.setTooltip('Add loop condition and statements.');
+        this.setHelpUrl('');
+    }
+};
+
+Blockly.Blocks['create_actor'] = {
     init: function () {
         this.appendValueInput("NAME")
             .setCheck("String")
-            .appendField("create chick");
+            .appendField("create actor");
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldDropdown([
+                ["Chick", "chick"],
+                ["Hen", "hen"],
+                ["Dog", "dog"],
+                ["Duck", "duck"]
+            ]), "actor_type");
         this.setInputsInline(false);
         this.setOutput(true, null);
         this.setColour(65);
@@ -11,20 +36,20 @@ Blockly.Blocks['create_chick'] = {
     }
 };
 
-Blockly.Blocks['move_actor_to_x_y'] = {
+Blockly.Blocks['move_actor_to_row_column'] = {
     init: function () {
         this.appendValueInput("ACTOR")
             .appendField("move");
-        this.appendValueInput("X")
-            .appendField("x");
-        this.appendValueInput("Y")
-            .appendField("y");
+        this.appendValueInput("ROW")
+            .appendField("row");
+        this.appendValueInput("COLUMN")
+            .appendField("column");
         this.setInputsInline(true);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setOutput(false, null);
         this.setColour(65);
-        this.setTooltip("Move actor to x, y");
+        this.setTooltip("Move actor to row, column");
         this.setHelpUrl("");
     }
 };
