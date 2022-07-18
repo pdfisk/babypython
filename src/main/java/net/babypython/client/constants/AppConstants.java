@@ -28,9 +28,9 @@ public class AppConstants {
     public static final boolean SHOW_MERCHANDISE = true;
     public static final boolean SHOW_PATREON = true;
     //
-    public static final String TIMESTAMP = "2022-07-18T15:50:02Z";
+    public static final String TIMESTAMP = "2022-07-18T18:33:16Z";
     public static final String VERSION = "1.0.0";
-    public static final String BUILD_NUMBER = "22";
+    public static final String BUILD_NUMBER = "23";
 }
 
 // https://www.utctime.net/gmt-time-now
