@@ -55,13 +55,13 @@ public class ActorsPanel extends GwtCanvas {
         addImage(SpriteConstants.CatRight, x += 125, y, 0.5);
         addImage(SpriteConstants.ChickLeft, x += 125, y, 0.08);
         addImage(SpriteConstants.ChickRight, x + 125, y, 0.08);
-        addImage(SpriteConstants.ChickenAndChick, x = 5, y += 125, 0.4);
-        addImage(SpriteConstants.DogAtHomeLeft, x += 125, y, 0.6);
+        addImage(SpriteConstants.HenWithChick, x = 5, y += 125, 0.4);
+        addImage(SpriteConstants.DogAtHome, x += 125, y, 0.6);
         addImage(SpriteConstants.DogHouse, x += 145, y, 0.6);
         addImage(SpriteConstants.DuckFront, x + 145, y, 0.5);
         addImage(SpriteConstants.DuckLeft, x = 5, y += 125, 0.5);
         addImage(SpriteConstants.DuckRight, x += 125, y, 0.5);
-        addImage(SpriteConstants.DucklingInHouse, x += 125, y, 0.5);
+        addImage(SpriteConstants.DucklingInDogHouse, x += 125, y, 0.5);
         addImage(SpriteConstants.Fence, x + 125, y, 0.5);
         addImage(SpriteConstants.OrangeDucklingLeft, x = 5, y += 125, 0.5);
         addImage(SpriteConstants.OrangeDucklingRight, x += 125, y, 0.5);

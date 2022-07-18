@@ -30,19 +30,18 @@ public class SpriteConstants {
     public static final String CatRight = "cat_right";
     public static final String ChickLeft = "chick_left";
     public static final String ChickRight = "chick_right";
-    public static final String ChickenAndChick = "chicken_and_chick";
-    public static final String DogAtHomeLeft = "dog_at_home_left";
-    public static final String DogAtHomeRight = "dog_at_home_right";
+    public static final String DogAtHome = "dog_at_home";
     public static final String DogHouse = "doghouse";
     public static final String DuckFront = "duck_front";
     public static final String DuckLeft = "duck_left";
     public static final String DuckRight = "duck_right";
-    public static final String DucklingInHouse = "duckling_in_house";
+    public static final String DucklingInDogHouse = "duckling_in_dog_house";
     public static final String Fence = "fence";
+    public static final String HenWithChick = "hen_with_chick";
+    public static final String LightHenLeft = "light_hen_chick";
+    public static final String LightHenRight = "light_hen_right";
     public static final String OrangeDucklingLeft = "orange_duckling_left";
     public static final String OrangeDucklingRight = "orange_duckling_right";
-    public static final String PaleChickenLeft = "pale_chicken_left";
-    public static final String PaleChickenRight = "pale_chicken_right";
     public static final String Pump = "pump";
     public static final String PumpWithDog = "pump_with_dog";
     public static final String PumpWithDogAndDuckling = "pump_with_dog_and_duckling";
@@ -53,18 +52,18 @@ public class SpriteConstants {
                 CatRight,
                 ChickLeft,
                 ChickRight,
-                ChickenAndChick,
-                DogAtHomeLeft,
+                HenWithChick,
+                DogAtHome,
                 DogHouse,
                 DuckFront,
                 DuckLeft,
                 DuckRight,
-                DucklingInHouse,
+                DucklingInDogHouse,
                 Fence,
+                LightHenLeft,
+                LightHenRight,
                 OrangeDucklingLeft,
                 OrangeDucklingRight,
-                PaleChickenLeft,
-                PaleChickenRight,
                 Pump,
                 PumpWithDog,
                 PumpWithDogAndDuckling
