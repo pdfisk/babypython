@@ -29,8 +29,8 @@ import net.babypython.client.ui.gwt.window.GwtWindow;
 import net.babypython.client.ui.gwt.window.widgets.GwtWindowButtonBar;
 import net.babypython.client.ui.session.Session;
 import net.babypython.client.ui.session.SessionState;
+import net.babypython.client.ui.windows.session.login.widgets.ButtonBar;
 import net.babypython.client.ui.windows.session.login.widgets.LoginForm;
-import net.babypython.client.ui.windows.welcome.widgets.ButtonBar;
 
 public class LoginWindow extends GwtWindow {
 

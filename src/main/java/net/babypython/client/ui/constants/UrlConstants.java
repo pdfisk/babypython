@@ -30,8 +30,10 @@ public class UrlConstants {
     public static final String Forum = "https://baby-python.freeforums.net/";
     public static final String GitHub = "https://github.com/pdfisk/babypython";
     public static final String HerokuProjects = "https://babypython.herokuapp.com/api/projects";
+    public static final String HerokuUser = "https://babypython.herokuapp.com/api/user";
     public static final String JavaDoc = "https://javadoc.babypython.net";
     public static final String LocalProjects = "http://localhost:8081/api/projects";
+    public static final String LocalUser = "http://localhost:8081/api/user";
     public static final String Patreon = "https://patreon.com/babypython";
     public static final String Quora = "https://babypython.quora.com/";
     public static final String Reddit = "https://www.reddit.com/r/babypython/";

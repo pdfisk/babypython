@@ -16,7 +16,7 @@ public class LoginMenu extends SessionMenuBar {
     }
 
     void addItems() {
-        loginItem = addItem("---", new Command() {
+        loginItem = addItem("Login", new Command() {
             @Override
             public void execute() {
                 onLoginOrLogout();
