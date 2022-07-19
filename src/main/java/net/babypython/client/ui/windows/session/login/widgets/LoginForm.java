@@ -21,28 +21,45 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package net.babypython.client.ui.constants;
+package net.babypython.client.ui.windows.session.login.widgets;
 
-public class DimensionConstants {
+import net.babypython.client.ui.constants.CommonWindowConstants;
+import net.babypython.client.ui.gwt.widgets.GwtForm;
+import net.babypython.client.ui.gwt.widgets.GwtTextBox;
 
-    // gwt window
-    public static final int GwtWindowHeaderBarHeight = 23;
-    public static final int GwtWindowEdgeWidth = 7;
+public class LoginForm extends GwtForm {
 
-    // navbar
-    public static final int NavBarButtonSize = 15;
-    public static final int NavBarButtonMarginRight = 10;
-    public static final int NavBarCenterMenuBarWidth = 495;
-    public static final int NavBarFileMenuWidth = 55;
-    public static final int NavBarHeight = 45;
-    public static final int NavBarBorderHeight = 2;
-    public static final int NavBarLoginMenuSize = 65;
-    public static final int NavBarLogoHeight = 40;
-    public static final int NavBarLogoMarginRight = 55;
-    public static final int NavBarLogoWidth = 269;
-    public static final int NavBarPaddingLeftRight = 15;
+    protected void addFields() {
+        super.addFields();
+        nameField = addTextBox("Name");
+        nameField.setIsLowercase();
+        nameField.setIsNoSpaces();
+        passwordField = addTextBox("Password");
+    }
 
-    // tab panel
-    public static final int TabPanelBarHeight = 29;
+    @Override
+    protected int defaultLabelWidth() {
+        return CommonWindowConstants.LoginWindowLabelWidth;
+    }
 
+    @Override
+    protected int defaultWidgetAdjust() {
+        return CommonWindowConstants.LoginWindowWidgetAdjust;
+    }
+
+    public String getName() {
+        return nameField.getValue();
+    }
+
+    public String getPassword() {
+        return passwordField.getValue();
+    }
+
+    public void reset() {
+        nameField.setValue("");
+        passwordField.setValue("");
+    }
+
+    GwtTextBox nameField;
+    GwtTextBox passwordField;
 }

@@ -36,10 +36,10 @@ import net.babypython.client.ui.session.SessionState;
 import net.babypython.client.ui.util.DomUtils;
 import net.babypython.client.ui.util.PwaUtil;
 import net.babypython.client.ui.viewport.widgets.desktop.WindowManager;
-import net.babypython.client.ui.viewport.widgets.navbar.CenteringHorizontalPanel;
-import net.babypython.client.ui.viewport.widgets.navbar.Logo;
-import net.babypython.client.ui.viewport.widgets.navbar.NavBarMessageBox;
+import net.babypython.client.ui.viewport.widgets.navbar.*;
 import net.babypython.client.ui.windows.projects.ProjectsWindow;
+import net.babypython.client.ui.windows.session.login.LoginWindow;
+import net.babypython.client.ui.windows.session.register.RegisterWindow;
 import net.babypython.client.ui.windows.transcript.TranscriptWindow;
 import net.babypython.client.ui.windows.workbench.WorkbenchWindow;
 import net.babypython.client.vm.interfaces.ISessionState;
@@ -77,6 +77,7 @@ public class NavBar extends GwtDockPanel implements ISessionState {
         addGitHubMenu();
         addYouTubeMenu();
         addDonateMenu();
+        addLoginMenus();
     }
 
     protected PythonApi getPythonApi() {
@@ -89,6 +90,17 @@ public class NavBar extends GwtDockPanel implements ISessionState {
 
     protected void onWorkbench() {
         new WorkbenchWindow();
+    }
+
+    void addLoginMenus() {
+        MenuBar loginMenuBar = new MenuBar();
+        loginMenuBar.getElement().getStyle().setBackgroundImage(null);
+        loginMenuBar.getElement().getStyle().setBackgroundColor(ColorConstants.NavBarBackgroundLightBlue);
+        loginMenu = new LoginMenu(this);
+        loginMenu.setAnimationEnabled(true);
+        loginMenu.getElement().addClassName("subMenuStyle");
+        loginMenuBar.addItem(new MenuItem("Login", loginMenu));
+        outerDockPanel.addEast(loginMenuBar, DimensionConstants.NavBarLoginMenuSize);
     }
 
     void addLogo() {
@@ -274,6 +286,14 @@ public class NavBar extends GwtDockPanel implements ISessionState {
         DomUtils.openBrowserTab(UrlConstants.Twitter);
     }
 
+    public void onLogin() {
+        new LoginWindow();
+    }
+
+    public void onRegister() {
+        new RegisterWindow();
+    }
+
     void onGitHub() {
         DomUtils.openBrowserTab(UrlConstants.GitHub);
     }
@@ -348,6 +368,7 @@ public class NavBar extends GwtDockPanel implements ISessionState {
 
     protected MenuBar centerMenuBar;
     GwtDockPanel innerDockPanel;
+    SessionMenuBar loginMenu;
     GwtDockPanel outerDockPanel;
     PythonApi pythonApi;
 }

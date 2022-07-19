@@ -29,9 +29,10 @@ public class UrlConstants {
     public static final String Facebook = "https://www.facebook.com/Baby-Python-107690835254068";
     public static final String Forum = "https://baby-python.freeforums.net/";
     public static final String GitHub = "https://github.com/pdfisk/babypython";
+    public static final String HerokuProjects = "https://babypython.herokuapp.com/api/projects";
     public static final String JavaDoc = "https://javadoc.babypython.net";
+    public static final String LocalProjects = "http://localhost:8081/api/projects";
     public static final String Patreon = "https://patreon.com/babypython";
-    public static final String Projects = "https://babypython.herokuapp.com/api/projects";
     public static final String Quora = "https://babypython.quora.com/";
     public static final String Reddit = "https://www.reddit.com/r/babypython/";
     public static final String Spring = "https://baby-python.creator-spring.com/";

@@ -25,6 +25,7 @@ package net.babypython.client.vm.stores.projects;
 
 import com.google.gwt.json.client.JSONArray;
 import com.google.gwt.json.client.JSONObject;
+import net.babypython.client.constants.AppConstants;
 import net.babypython.client.ui.constants.UrlConstants;
 import net.babypython.client.ui.interfaces.IHandleStringListData;
 import net.babypython.client.ui.interfaces.IHandleTextValue;
@@ -51,7 +52,8 @@ public class ProjectsStore extends Logable {
 
     public void loadProjects(IHandleStringListData stringListDataHandler) {
         projectDictionary.clear();
-        RequestUtil.getUrlText(UrlConstants.Projects, new IRequestHandler() {
+        String serverUrl = AppConstants.IS_DEBUG ? UrlConstants.LocalProjects : UrlConstants.HerokuProjects;
+        RequestUtil.getUrlText(serverUrl, new IRequestHandler() {
             @Override
             public void handleCallback(String jsonStr) {
                 JSONArray jsonArray = JsonUtil.decode(jsonStr).isArray();

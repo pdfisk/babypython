@@ -21,28 +21,25 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package net.babypython.client.ui.constants;
+package net.babypython.client.ui.windows.session.login.widgets;
 
-public class DimensionConstants {
+import net.babypython.client.ui.gwt.window.GwtWindow;
+import net.babypython.client.ui.gwt.window.widgets.GwtWindowButtonBar;
+import net.babypython.client.vm.containers.lists.StringList;
 
-    // gwt window
-    public static final int GwtWindowHeaderBarHeight = 23;
-    public static final int GwtWindowEdgeWidth = 7;
+public class ButtonBar extends GwtWindowButtonBar {
 
-    // navbar
-    public static final int NavBarButtonSize = 15;
-    public static final int NavBarButtonMarginRight = 10;
-    public static final int NavBarCenterMenuBarWidth = 495;
-    public static final int NavBarFileMenuWidth = 55;
-    public static final int NavBarHeight = 45;
-    public static final int NavBarBorderHeight = 2;
-    public static final int NavBarLoginMenuSize = 65;
-    public static final int NavBarLogoHeight = 40;
-    public static final int NavBarLogoMarginRight = 55;
-    public static final int NavBarLogoWidth = 269;
-    public static final int NavBarPaddingLeftRight = 15;
+    public ButtonBar(GwtWindow window) {
+        super(window);
+    }
 
-    // tab panel
-    public static final int TabPanelBarHeight = 29;
+    @Override
+    protected StringList defaultButtons() {
+        StringList buttons = super.defaultButtons();
+        buttons.add("Login");
+        buttons.add("Reset");
+        buttons.add("Cancel");
+        return buttons;
+    }
 
 }
