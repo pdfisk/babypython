@@ -33,16 +33,16 @@ import net.babypython.client.python.api.PythonApi;
 import net.babypython.client.ui.constants.*;
 import net.babypython.client.ui.gwt.widgets.GwtDockPanel;
 import net.babypython.client.ui.session.SessionState;
+import net.babypython.client.ui.util.DomUtils;
+import net.babypython.client.ui.util.PwaUtil;
 import net.babypython.client.ui.viewport.widgets.desktop.WindowManager;
-import net.babypython.client.ui.viewport.widgets.navbar.*;
-import net.babypython.client.ui.windows.policy.CookiePolicyWindow;
-import net.babypython.client.ui.windows.policy.PrivacyPolicyWindow;
+import net.babypython.client.ui.viewport.widgets.navbar.CenteringHorizontalPanel;
+import net.babypython.client.ui.viewport.widgets.navbar.Logo;
+import net.babypython.client.ui.viewport.widgets.navbar.NavBarMessageBox;
 import net.babypython.client.ui.windows.projects.ProjectsWindow;
 import net.babypython.client.ui.windows.transcript.TranscriptWindow;
 import net.babypython.client.ui.windows.workbench.WorkbenchWindow;
 import net.babypython.client.vm.interfaces.ISessionState;
-import net.babypython.client.ui.util.DomUtils;
-import net.babypython.client.ui.util.PwaUtil;
 
 public class NavBar extends GwtDockPanel implements ISessionState {
 
@@ -298,29 +298,6 @@ public class NavBar extends GwtDockPanel implements ISessionState {
         WindowManager.getInstance().closeAllWindows();
     }
 
-    protected void addPrivacyMenu() {
-        MenuBar privacyMenu = new MenuBar(true);
-        privacyMenu.setAnimationEnabled(true);
-
-        privacyMenu.addItem("Privacy Policy", new Command() {
-            @Override
-            public void execute() {
-                onPrivacyPolicy();
-            }
-        });
-
-        privacyMenu.addSeparator();
-
-        privacyMenu.addItem("Cookie Policy", new Command() {
-            @Override
-            public void execute() {
-                onCookiePolicy();
-            }
-        });
-
-        centerMenuBar.addItem(new MenuItem("Privacy", privacyMenu));
-    }
-
     int getNavBarCenterMenuBarWidth() {
         int width = DimensionConstants.NavBarCenterMenuBarWidth;
         if (isStandalone())
@@ -330,10 +307,6 @@ public class NavBar extends GwtDockPanel implements ISessionState {
 
     boolean isStandalone() {
         return PwaUtil.isStandalone();
-    }
-
-    void onCookiePolicy() {
-        new CookiePolicyWindow().show();
     }
 
     void onMerchandise() {
@@ -346,10 +319,6 @@ public class NavBar extends GwtDockPanel implements ISessionState {
 
     void onForum() {
         DomUtils.openBrowserTab(UrlConstants.Forum);
-    }
-
-    void onPrivacyPolicy() {
-        new PrivacyPolicyWindow().show();
     }
 
     void onShowVersion() {
