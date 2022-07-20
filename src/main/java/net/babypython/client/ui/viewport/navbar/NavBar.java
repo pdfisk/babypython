@@ -53,21 +53,21 @@ public class NavBar extends GwtDockPanel implements ISessionState {
         setHeight(DimensionConstants.NavBarHeight + "px");
         getElement().getStyle().setBackgroundColor(ColorConstants.NavBarBackgroundGray);
         getElement().getStyle().setColor(ColorConstants.NavBarTextColor);
-        innerDockPanel = new GwtDockPanel();
-        innerDockPanel.setWidth("100%");
-        innerDockPanel.setHeight("100%");
-        outerDockPanel = new GwtDockPanel();
-        outerDockPanel.setWidth("100%");
-        outerDockPanel.setHeight("100%");
+        verticalDockPanel = new GwtDockPanel();
+        verticalDockPanel.setWidth("100%");
+        verticalDockPanel.setHeight("100%");
+        horizontalDockPanel = new GwtDockPanel();
+        horizontalDockPanel.setWidth("100%");
+        horizontalDockPanel.setHeight("100%");
         addLogo();
         createCenterMenuBar();
         addCenterMenus();
-        innerDockPanel.addWest(centerMenuBar, getNavBarCenterMenuBarWidth());
-        innerDockPanel.add(new CenteringHorizontalPanel(NavBarMessageBox.getInstance()));
-        outerDockPanel.add(innerDockPanel);
+        verticalDockPanel.addNorth(centerMenuBar, getNavBarCenterMenuBarWidth());
+        verticalDockPanel.add(new CenteringHorizontalPanel(NavBarMessageBox.getInstance()));
+        horizontalDockPanel.add(verticalDockPanel);
         addWest(new SimplePanel(), DimensionConstants.NavBarPaddingLeftRight);
         addEast(new SimplePanel(), DimensionConstants.NavBarPaddingLeftRight);
-        add(outerDockPanel);
+        add(horizontalDockPanel);
     }
 
     protected void addCenterMenus() {
@@ -100,16 +100,16 @@ public class NavBar extends GwtDockPanel implements ISessionState {
         loginMenu.setAnimationEnabled(true);
         loginMenu.getElement().addClassName("subMenuStyle");
         loginMenuBar.addItem(new MenuItem("Login", loginMenu));
-        outerDockPanel.addEast(loginMenuBar, DimensionConstants.NavBarLoginMenuSize);
+        horizontalDockPanel.addEast(loginMenuBar, DimensionConstants.NavBarLoginMenuSize);
     }
 
     void addLogo() {
         Logo logo = new Logo();
         logo.setUrl(ImageConstants.logoUrl);
         logo.getElement().getStyle().setMarginTop(2, Style.Unit.PX);
-        outerDockPanel.addWest(logo, DimensionConstants.NavBarLogoWidth);
+        horizontalDockPanel.addWest(logo, DimensionConstants.NavBarLogoWidth);
         SimplePanel spacer = new SimplePanel();
-        outerDockPanel.addWest(spacer, 25);
+        horizontalDockPanel.addWest(spacer, 25);
     }
 
     protected void addDonateMenu() {
@@ -367,8 +367,8 @@ public class NavBar extends GwtDockPanel implements ISessionState {
     }
 
     protected MenuBar centerMenuBar;
-    GwtDockPanel innerDockPanel;
+    GwtDockPanel verticalDockPanel;
     SessionMenuBar loginMenu;
-    GwtDockPanel outerDockPanel;
+    GwtDockPanel horizontalDockPanel;
     PythonApi pythonApi;
 }
