@@ -25,6 +25,7 @@ package net.babypython.client.ui.viewport.widgets.navbar;
 
 import com.google.gwt.dom.client.Style;
 import com.google.gwt.user.client.ui.HasHorizontalAlignment;
+import net.babypython.client.ui.constants.DimensionConstants;
 
 public class MiddleLeftPanel extends MiddlePanel {
 
@@ -37,6 +38,7 @@ public class MiddleLeftPanel extends MiddlePanel {
     protected void setStyles(Style style) {
         super.setStyles(style);
         style.setTextAlign(Style.TextAlign.LEFT);
+        style.setPaddingLeft(DimensionConstants.NavBarInfoProjectPanelIndent, Style.Unit.PX);
     }
 
 }

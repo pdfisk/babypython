@@ -1,6 +1,7 @@
 package net.babypython.client.ui.viewport.widgets.navbar;
 
 import com.google.gwt.dom.client.Style;
+import net.babypython.client.constants.AppConstants;
 import net.babypython.client.ui.constants.DimensionConstants;
 import net.babypython.client.ui.gwt.widgets.GwtDockPanel;
 
@@ -14,20 +15,31 @@ public class InfoPanel extends GwtDockPanel {
     }
 
     void initialize() {
-        sessionStatusPanel = new MiddleRightPanel();
-        messagePanel = new MiddleCenterPanel();
-        addEast(sessionStatusPanel, DimensionConstants.NavBarInfoSessionPanelWidth);
-        add(messagePanel);
+        leftMessagePanel = new MiddleLeftPanel();
+        centerMessagePanel = new MiddleCenterPanel();
+        sessionPanel = new MiddleRightPanel();
+        addWest(leftMessagePanel, DimensionConstants.NavBarInfoProjectPanelWidth);
+        addEast(sessionPanel, DimensionConstants.NavBarInfoSessionPanelWidth);
+        add(centerMessagePanel);
         showSignedOut();
-        showMessage("HELLO WORLD!");
+        showNoProjectLoaded();
+        showVersion();
     }
 
-    void showMessage(String text) {
-        messagePanel.setText(text);
+    void showCenterText(String text) {
+        centerMessagePanel.setText(text);
+    }
+
+    void showProjectText(String text) {
+        leftMessagePanel.setText(text);
     }
 
     void setSessionText(String statusText) {
-        sessionStatusPanel.setText(statusText);
+        sessionPanel.setText(statusText);
+    }
+
+    public void showNoProjectLoaded() {
+        showProjectText("No project loaded");
     }
 
     public void showSignedInAs(String username) {
@@ -38,13 +50,22 @@ public class InfoPanel extends GwtDockPanel {
         setSessionText("<signed out>");
     }
 
+    public void showVersion() {
+        String version = "";
+        version += "Version: " + AppConstants.VERSION;
+        version += " build(" + AppConstants.BUILD_NUMBER + ")";
+        version += " " + AppConstants.TIMESTAMP;
+        showCenterText(version);
+    }
+
     public static InfoPanel getInstance() {
         if (instance == null)
             instance = new InfoPanel();
         return instance;
     }
 
-    MiddleCenterPanel messagePanel;
-    MiddleRightPanel sessionStatusPanel;
+    MiddleLeftPanel leftMessagePanel;
+    MiddleCenterPanel centerMessagePanel;
+    MiddleRightPanel sessionPanel;
     static InfoPanel instance;
 }
