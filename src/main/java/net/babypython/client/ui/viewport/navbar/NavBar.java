@@ -295,13 +295,6 @@ public class NavBar extends GwtDockPanel implements ISessionState {
         WindowManager.getInstance().closeAllWindows();
     }
 
-    int getNavBarCenterMenuBarWidth() {
-        int width = DimensionConstants.NavBarCenterMenuBarWidth;
-        if (isStandalone())
-            width += DimensionConstants.NavBarFileMenuWidth;
-        return width;
-    }
-
     boolean isStandalone() {
         return PwaUtil.isStandalone();
     }

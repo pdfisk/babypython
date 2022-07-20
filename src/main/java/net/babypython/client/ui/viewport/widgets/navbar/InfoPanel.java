@@ -1,10 +1,10 @@
 package net.babypython.client.ui.viewport.widgets.navbar;
 
-import net.babypython.client.ui.gwt.widgets.GwtHorizontalPanel;
+import net.babypython.client.ui.gwt.widgets.GwtDockPanel;
 
-public class InfoPanel extends GwtHorizontalPanel {
+public class InfoPanel extends GwtDockPanel {
 
-     InfoPanel() {
+    InfoPanel() {
         super();
         initialize();
         getElement().getStyle().setBackgroundColor("yellow");
@@ -19,5 +19,6 @@ public class InfoPanel extends GwtHorizontalPanel {
             instance = new InfoPanel();
         return instance;
     }
+
     static InfoPanel instance;
 }

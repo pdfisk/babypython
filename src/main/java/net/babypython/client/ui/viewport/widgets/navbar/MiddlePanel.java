@@ -23,22 +23,26 @@
  */
 package net.babypython.client.ui.viewport.widgets.navbar;
 
+import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.HasHorizontalAlignment;
 import com.google.gwt.user.client.ui.HasVerticalAlignment;
 import com.google.gwt.user.client.ui.Widget;
 import net.babypython.client.ui.gwt.widgets.GwtHorizontalPanel;
 
-public class CenteringHorizontalPanel extends GwtHorizontalPanel {
+public class MiddlePanel extends GwtHorizontalPanel {
 
-    public CenteringHorizontalPanel(Widget widget) {
+    public MiddlePanel() {
         super();
         setWidth("100%");
         setHeight("100%");
         setHorizontalAlignment(HasHorizontalAlignment.ALIGN_CENTER);
         setVerticalAlignment(HasVerticalAlignment.ALIGN_MIDDLE);
-        this.widget = widget;
-        add(this.widget);
+        this.htmlWidget = new HTML();
+        add(this.htmlWidget);
     }
 
-    Widget widget;
+    protected void setHorizontalAlignment() {
+    }
+
+   protected Widget htmlWidget;
 }
