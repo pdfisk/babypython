@@ -32,9 +32,11 @@ public class DimensionConstants {
     // navbar
     public static final int NavBarButtonSize = 15;
     public static final int NavBarButtonMarginRight = 10;
+    public static final int NavBarCenterMenuBarHeight = 22;
     public static final int NavBarCenterMenuBarWidth = 495;
     public static final int NavBarFileMenuWidth = 55;
     public static final int NavBarHeight = 45;
+    public static final int NavBarInfoPanelHeight = 20;
     public static final int NavBarBorderHeight = 2;
     public static final int NavBarLoginMenuSize = 65;
     public static final int NavBarLogoHeight = 40;

@@ -23,13 +23,25 @@
  */
 package net.babypython.client.ui.gwt.widgets;
 
+import com.google.gwt.dom.client.Style;
 import com.google.gwt.user.client.ui.HorizontalPanel;
 
 public class GwtHorizontalPanel extends HorizontalPanel {
 
     public GwtHorizontalPanel() {
-        setHeight("100%");
-        setWidth("100%");
+        super();
+        if (isFullWidth())
+            setWidth("100%");
+        if (isFullHeight())
+            setHeight("100%");
+    }
+
+    protected boolean isFullHeight() {
+        return true;
+    }
+
+    protected boolean isFullWidth() {
+        return true;
     }
 
 }
