@@ -23,12 +23,20 @@
  */
 package net.babypython.client.ui.viewport.widgets.navbar;
 
+import com.google.gwt.dom.client.Style;
 import com.google.gwt.user.client.ui.HasHorizontalAlignment;
 
 public class MiddleCenterPanel extends MiddlePanel {
 
+    @Override
     protected void setHorizontalAlignment() {
         setHorizontalAlignment(HasHorizontalAlignment.ALIGN_CENTER);
+    }
+
+    @Override
+    protected void setStyles(Style style) {
+        super.setStyles(style);
+        style.setTextAlign(Style.TextAlign.CENTER);
     }
 
 }

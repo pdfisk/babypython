@@ -23,12 +23,21 @@
  */
 package net.babypython.client.ui.viewport.widgets.navbar;
 
+import com.google.gwt.dom.client.Style;
 import com.google.gwt.user.client.ui.HasHorizontalAlignment;
 
 public class MiddleRightPanel extends MiddlePanel {
 
+    @Override
     protected void setHorizontalAlignment() {
         setHorizontalAlignment(HasHorizontalAlignment.ALIGN_RIGHT);
+    }
+
+    @Override
+    protected void setStyles(Style style) {
+        super.setStyles(style);
+        style.setTextAlign(Style.TextAlign.RIGHT);
+        style.setPaddingRight(35, Style.Unit.PX);
     }
 
 }
