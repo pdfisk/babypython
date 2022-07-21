@@ -28,7 +28,7 @@ import net.babypython.client.ui.constants.WindowButtonConstants;
 import net.babypython.client.ui.gwt.widgets.GwtDeckPanel;
 import net.babypython.client.ui.gwt.window.GwtWindow;
 import net.babypython.client.ui.gwt.window.widgets.GwtWindowButtonBar;
-import net.babypython.client.ui.windows.projects.ProjectsWindow;
+import net.babypython.client.ui.windows.projects.SharedProjectsWindow;
 import net.babypython.client.ui.windows.welcome.widgets.ButtonBar;
 import net.babypython.client.ui.windows.welcome.widgets.baby_python_page.BabyPythonPage;
 import net.babypython.client.ui.util.WindowUtil;
@@ -86,7 +86,7 @@ public class WelcomeWindow extends GwtWindow {
 
     void onOpenProjects() {
         minimize();
-        ProjectsWindow.getInstance().show();
+        SharedProjectsWindow.getInstance().show();
     }
 
     public void selectBabyPython() {

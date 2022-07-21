@@ -29,11 +29,11 @@ public class UrlConstants {
     public static final String Facebook = "https://www.facebook.com/Baby-Python-107690835254068";
     public static final String Forum = "https://baby-python.freeforums.net/";
     public static final String GitHub = "https://github.com/pdfisk/babypython";
-    public static final String HerokuProjects = "https://babypython.herokuapp.com/api/projects";
+    public static final String HerokuSharedProjects = "https://babypython.herokuapp.com/api/shared_projects";
     public static final String HerokuRegister = "https://babypython.herokuapp.com/api/register";
     public static final String HerokuUser = "https://babypython.herokuapp.com/api/user";
     public static final String JavaDoc = "https://javadoc.babypython.net";
-    public static final String LocalProjects = "http://localhost:8081/api/projects";
+    public static final String LocalSharedProjects = "http://localhost:8081/api/shared_projects";
     public static final String LocalRegister = "http://localhost:8081/api/register";
     public static final String LocalUser = "http://localhost:8081/api/user";
     public static final String Patreon = "https://patreon.com/babypython";

@@ -35,10 +35,11 @@ import net.babypython.client.ui.gwt.widgets.GwtDockPanel;
 import net.babypython.client.ui.session.Session;
 import net.babypython.client.ui.session.SessionState;
 import net.babypython.client.ui.util.DomUtils;
+import net.babypython.client.ui.util.Logable;
 import net.babypython.client.ui.util.PwaUtil;
 import net.babypython.client.ui.viewport.widgets.desktop.WindowManager;
 import net.babypython.client.ui.viewport.widgets.navbar.*;
-import net.babypython.client.ui.windows.projects.ProjectsWindow;
+import net.babypython.client.ui.windows.projects.SharedProjectsWindow;
 import net.babypython.client.ui.windows.session.login.LoginWindow;
 import net.babypython.client.ui.windows.session.register.RegisterWindow;
 import net.babypython.client.ui.windows.transcript.TranscriptWindow;
@@ -70,8 +71,9 @@ public class NavBar extends GwtDockPanel implements ISessionState {
     }
 
     protected void addCenterMenus() {
-        addDocsMenu();
+        addProjectsMenu();
         addToolsMenu();
+        addDocsMenu();
         addForumMenu();
         addGitHubMenu();
         addYouTubeMenu();
@@ -83,8 +85,12 @@ public class NavBar extends GwtDockPanel implements ISessionState {
         return PythonApi.getInstance();
     }
 
-    protected void onProjects() {
-        ProjectsWindow.getInstance().show();
+    protected void onSharedProjects() {
+        SharedProjectsWindow.getInstance().show();
+    }
+
+    protected void onMyProjects() {
+        Logable.info("onMyProjects");
     }
 
     protected void onWorkbench() {
@@ -175,16 +181,32 @@ public class NavBar extends GwtDockPanel implements ISessionState {
         }));
     }
 
+    protected void addProjectsMenu() {
+        MenuBar projectsMenu = new MenuBar(true);
+        projectsMenu.setAnimationEnabled(true);
+
+        projectsMenu.addItem(ViewportConstants.ProjectsMenuSharedProjects, new Command() {
+            @Override
+            public void execute() {
+                onSharedProjects();
+            }
+        });
+
+        projectsMenu.addSeparator();
+
+        projectsMenu.addItem(ViewportConstants.ProjectsMenuMyProjects, new Command() {
+            @Override
+            public void execute() {
+                onMyProjects();
+            }
+        });
+
+        centerMenuBar.addItem(new MenuItem(ViewportConstants.ProjectsMenu, projectsMenu));
+    }
+
     protected void addToolsMenu() {
         MenuBar toolsMenu = new MenuBar(true);
         toolsMenu.setAnimationEnabled(true);
-
-        toolsMenu.addItem(ViewportConstants.ToolsMenuProjects, new Command() {
-            @Override
-            public void execute() {
-                onProjects();
-            }
-        });
 
         toolsMenu.addItem(ViewportConstants.ToolsMenuWorkbench, new Command() {
             @Override
@@ -192,8 +214,6 @@ public class NavBar extends GwtDockPanel implements ISessionState {
                 onWorkbench();
             }
         });
-
-        toolsMenu.addSeparator();
 
         toolsMenu.addItem(ViewportConstants.ToolsMenuTranscript, new Command() {
             @Override
@@ -345,9 +365,9 @@ public class NavBar extends GwtDockPanel implements ISessionState {
     @Override
     public void onSessionStateChanged(SessionState sessionState) {
         loginMenu.onSessionStateChanged(sessionState);
-     }
+    }
 
-     public static NavBar getInstance() {
+    public static NavBar getInstance() {
         if (instance == null)
             instance = new NavBar();
         return instance;

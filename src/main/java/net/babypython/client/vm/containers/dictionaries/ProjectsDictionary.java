@@ -21,25 +21,11 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package net.babypython.client.ui.windows.projects.widgets;
+package net.babypython.client.vm.containers.dictionaries;
 
-import net.babypython.client.ui.constants.WindowButtonConstants;
-import net.babypython.client.ui.gwt.window.GwtWindow;
-import net.babypython.client.ui.gwt.window.widgets.GwtWindowButtonBar;
-import net.babypython.client.vm.containers.lists.StringList;
+import net.babypython.client.vm.stores.projects.ProjectRecord;
 
-public class ButtonBar extends GwtWindowButtonBar {
+import java.util.HashMap;
 
-    public ButtonBar(GwtWindow window) {
-        super(window);
-    }
-
-    @Override
-    protected StringList defaultButtons() {
-        StringList buttons = super.defaultButtons();
-        buttons.add(WindowButtonConstants.ProjectsButtonRefresh);
-        buttons.add(WindowButtonConstants.ProjectsButtonOpenInWorkbench);
-        return buttons;
-    }
-
+public class ProjectsDictionary extends HashMap<String, ProjectRecord> {
 }

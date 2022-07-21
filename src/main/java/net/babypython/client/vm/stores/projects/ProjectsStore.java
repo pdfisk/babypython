@@ -31,7 +31,7 @@ import net.babypython.client.ui.interfaces.IHandleStringListData;
 import net.babypython.client.ui.interfaces.IHandleTextValue;
 import net.babypython.client.ui.interfaces.IRequestHandler;
 import net.babypython.client.ui.util.Logable;
-import net.babypython.client.vm.containers.dictionaries.ProjectDictionary;
+import net.babypython.client.vm.containers.dictionaries.ProjectsDictionary;
 import net.babypython.client.vm.containers.lists.StringList;
 import net.babypython.client.vm.util.JsonUtil;
 import net.babypython.client.vm.util.requests.RequestUtil;
@@ -40,19 +40,19 @@ public class ProjectsStore extends Logable {
 
     ProjectsStore() {
         super();
-        projectDictionary = new ProjectDictionary();
+        sharedProjectsDictionary = new ProjectsDictionary();
     }
 
     public void getFileText(String name, IHandleTextValue handler) {
-        if (!projectDictionary.containsKey(name))
+        if (!sharedProjectsDictionary.containsKey(name))
             return;
-        String code = projectDictionary.get(name).code;
+        String code = sharedProjectsDictionary.get(name).code;
         handler.handleTextValue(code);
     }
 
-    public void loadProjects(IHandleStringListData stringListDataHandler) {
-        projectDictionary.clear();
-        String serverUrl = AppConstants.IS_DEBUG ? UrlConstants.LocalProjects : UrlConstants.HerokuProjects;
+    public void loadSharedProjects(IHandleStringListData stringListDataHandler) {
+        sharedProjectsDictionary.clear();
+        String serverUrl = AppConstants.IS_DEBUG ? UrlConstants.LocalSharedProjects : UrlConstants.HerokuSharedProjects;
         RequestUtil.getUrlText(serverUrl, new IRequestHandler() {
             @Override
             public void handleCallback(String jsonStr) {
@@ -62,7 +62,7 @@ public class ProjectsStore extends Logable {
                         loadProject(jsonArray.get(i).isObject());
                 }
                 StringList stringList = new StringList();
-                for (String name : projectDictionary.keySet())
+                for (String name : sharedProjectsDictionary.keySet())
                     stringList.add(name);
                 stringList.sort();
                 stringListDataHandler.handleStringListData(stringList);
@@ -74,7 +74,7 @@ public class ProjectsStore extends Logable {
         if (jsonObject == null)
             return;
         ProjectRecord projectRecord = new ProjectRecord(jsonObject);
-        projectDictionary.put(projectRecord.name, projectRecord);
+        sharedProjectsDictionary.put(projectRecord.name, projectRecord);
     }
 
     public static ProjectsStore getInstance() {
@@ -83,6 +83,6 @@ public class ProjectsStore extends Logable {
         return instance;
     }
 
-    ProjectDictionary projectDictionary;
+    ProjectsDictionary sharedProjectsDictionary;
     static ProjectsStore instance;
 }

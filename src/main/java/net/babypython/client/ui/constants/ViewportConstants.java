@@ -29,9 +29,13 @@ public class ViewportConstants {
     static final public int MenuBarHeight = 27;
     static final public int MessageBoxClearDelay = 7000;
 
+    // projects menu
+    static final public String ProjectsMenu = "Projects";
+    static final public String ProjectsMenuSharedProjects = "Shared Projects";
+    static final public String ProjectsMenuMyProjects = "My Projects";
+
     // tools menu
     static final public String ToolsMenu = "Tools";
-    static final public String ToolsMenuProjects = "Projects";
     static final public String ToolsMenuTranscript = "Transcript";
     static final public String ToolsMenuWorkbench = "Workbench";
 

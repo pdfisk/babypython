@@ -73,7 +73,7 @@ public class ProjectsPanel extends GwtSplitLayoutPanel implements IAfterResize, 
         Timer t = new Timer() {
             @Override
             public void run() {
-                refresh();
+                refreshSharedProjects();
             }
         };
         t.schedule(0);
@@ -83,9 +83,9 @@ public class ProjectsPanel extends GwtSplitLayoutPanel implements IAfterResize, 
         projectsLoader.getFileText(fileName, this);
     }
 
-    public void refresh() {
+    public void refreshSharedProjects() {
         clear();
-        projectsLoader.loadProjects(this);
+        projectsLoader.loadSharedProjects(this);
     }
 
     GwtWindow parentWindow;

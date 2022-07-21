@@ -144,10 +144,9 @@ public class CommonWindowConstants {
     public static final int PolicyWindowHeight = 375;
 
     // projects
-    public static final String ProjectBrowserWindowHeader = "Project Browser";
-    public static final String ProjectsBrowserWindowHeader = "Projects";
-    public static final int ProjectsBrowserWindowWidth = DefaultBrowserWidth;
-    public static final int ProjectsBrowserWindowHeight = DefaultBrowserHeight;
+    public static final String ProjectsSharedProjectsWindowHeader = "Shared Projects";
+    public static final int ProjectsWindowWidthPct = 70;
+    public static final int ProjectsWindowHeightPct = 70;
 
     // register window
     public static final String RegisterWindowHeader = "Register";
