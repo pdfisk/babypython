@@ -46,7 +46,7 @@ import net.babypython.client.vm.interfaces.ISessionState;
 
 public class NavBar extends GwtDockPanel implements ISessionState {
 
-    public NavBar() {
+    NavBar() {
         super();
         pythonApi = getPythonApi();
         setHeight(DimensionConstants.NavBarHeight + "px");
@@ -97,7 +97,9 @@ public class NavBar extends GwtDockPanel implements ISessionState {
         loginMenu = new LoginMenu(this);
         loginMenu.setAnimationEnabled(true);
         loginMenu.getElement().addClassName("subMenuStyle");
-        loginMenuBar.addItem(new MenuItem("Login", loginMenu));
+        MenuItem parentMenuItem = new MenuItem("Login", loginMenu);
+        loginMenu.setParentMenuItem(parentMenuItem);
+        loginMenuBar.addItem(parentMenuItem);
         menuDockPanel.addEast(loginMenuBar, DimensionConstants.NavBarLoginMenuSize);
     }
 
@@ -242,6 +244,10 @@ public class NavBar extends GwtDockPanel implements ISessionState {
         infoPanel = InfoPanel.getInstance();
     }
 
+    public LoginMenu getLoginMenu() {
+        return loginMenu;
+    }
+
     @Override
     protected boolean isFullHeight() {
         return false;
@@ -264,7 +270,7 @@ public class NavBar extends GwtDockPanel implements ISessionState {
     }
 
     public void onLogin() {
-        new LoginWindow();
+        LoginWindow.getInstance().show();
     }
 
     public void onRegister() {
@@ -333,14 +339,21 @@ public class NavBar extends GwtDockPanel implements ISessionState {
 
     @Override
     public void onSessionStateChanged(SessionState sessionState) {
-//        loginMenu.onSessionStateChanged(sessionState);
+        loginMenu.onSessionStateChanged(sessionState);
+     }
+
+     public static NavBar getInstance() {
+        if (instance == null)
+            instance = new NavBar();
+        return instance;
     }
 
     protected MenuBar centerMenuBar;
     InfoPanel infoPanel;
-    SessionMenuBar loginMenu;
+    LoginMenu loginMenu;
     GwtDockPanel menuDockPanel;
     GwtDockPanel outerDockPanel;
     PythonApi pythonApi;
     GwtDockPanel verticalDockPanel;
+    static NavBar instance;
 }

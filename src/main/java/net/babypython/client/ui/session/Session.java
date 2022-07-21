@@ -23,14 +23,22 @@
  */
 package net.babypython.client.ui.session;
 
+import com.google.gwt.json.client.JSONObject;
+import com.google.gwt.json.client.JSONValue;
 import net.babypython.client.constants.AppConstants;
 import net.babypython.client.ui.constants.UrlConstants;
 import net.babypython.client.ui.interfaces.IRequestHandler;
+import net.babypython.client.ui.viewport.navbar.NavBar;
+import net.babypython.client.ui.viewport.widgets.navbar.InfoPanel;
+import net.babypython.client.ui.windows.session.login.LoginWindow;
 import net.babypython.client.vm.containers.records.UserRecord;
 import net.babypython.client.vm.events.error.ErrorEventBus;
 import net.babypython.client.vm.events.session.SessionEventBus;
 import net.babypython.client.ui.util.Logable;
+import net.babypython.client.vm.util.JsonUtil;
 import net.babypython.client.vm.util.requests.RequestUtil;
+
+import java.sql.Timestamp;
 
 public class Session extends Logable {
 
@@ -58,6 +66,7 @@ public class Session extends Logable {
         this.sessionState = sessionState;
         currentUser = user;
         SessionEventBus.fireSessionStateEvent(sessionState);
+//        NavBar.getInstance().onSessionStateChanged(sessionState);
     }
 
     void showInvalidLogin() {
@@ -79,14 +88,31 @@ public class Session extends Logable {
     public void tryLogin(String username, String password) {
         String requestData = "";
         requestData += "username=" + username + "&";
-        requestData += "password="+ password;
+        requestData += "password=" + password;
         String serverUrl = AppConstants.IS_DEBUG ? UrlConstants.LocalUser : UrlConstants.HerokuUser;
         RequestUtil.getUrlText(serverUrl, new IRequestHandler() {
             @Override
-            public void handleCallback(String jsonData) {
-                Logable.info("handleCallback", jsonData);
+            public void handleCallback(String jsonStr) {
+                handleLoginJsonStr(jsonStr);
             }
         }, requestData);
+    }
+
+    void handleLoginJsonStr(String jsonStr) {
+        try {
+            JSONValue jsonValue = JsonUtil.decode(jsonStr);
+            JSONObject jsonObject = jsonValue.isObject();
+            currentUser = new UserRecord();
+            currentUser.id = JsonUtil.getIntField(jsonObject, "id");
+            currentUser.username = JsonUtil.getStringField(jsonObject, "username");
+            currentUser.level = JsonUtil.getIntField(jsonObject, "level");
+            currentUser.created_at = Timestamp.valueOf(JsonUtil.getStringField(jsonObject, "created_at"));
+            currentUser.updated_at = Timestamp.valueOf(JsonUtil.getStringField(jsonObject, "updated_at"));
+            InfoPanel.getInstance().showSignedInAs(currentUser.username);
+            LoginWindow.getInstance().hide();
+            setSessionState(SessionState.LoggedIn, currentUser);
+        } catch (Exception e) {
+        }
     }
 
     public void tryRegister(String name, String email, String password) {

@@ -44,6 +44,10 @@ public class MiddlePanel extends GwtHorizontalPanel {
     protected void setHorizontalAlignment() {
     }
 
+    public void setHtml(String html) {
+        htmlWidget.setHTML(html);
+    }
+
     protected void setStyles() {
         Style style = htmlWidget.getElement().getStyle();
         setStyles(style);

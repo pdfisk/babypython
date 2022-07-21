@@ -24,7 +24,7 @@
 package net.babypython.client.ui.session;
 
 public enum SessionState {
-    LoggedOut,
     LoggedIn,
-    LoggedInAsAdmin
+    LoggedInAsAdmin,
+    LoggedOut
 }

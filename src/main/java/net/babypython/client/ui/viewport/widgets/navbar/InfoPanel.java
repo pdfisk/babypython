@@ -34,8 +34,8 @@ public class InfoPanel extends GwtDockPanel {
         leftMessagePanel.setText(text);
     }
 
-    void setSessionText(String statusText) {
-        sessionPanel.setText(statusText);
+    void setSessionHtml(String html) {
+        sessionPanel.setHtml(html);
     }
 
     public void showNoProjectLoaded() {
@@ -43,18 +43,18 @@ public class InfoPanel extends GwtDockPanel {
     }
 
     public void showSignedInAs(String username) {
-        setSessionText("signed in(" + username + ")");
+        setSessionHtml("Signed In: <b>[" + username + "]</b>");
     }
 
     public void showSignedOut() {
-        setSessionText("<signed out>");
+        setSessionHtml("<b>Signed Out</b>");
     }
 
     public void showVersion() {
         String version = "";
         version += "Version: " + AppConstants.VERSION;
         version += " build(" + AppConstants.BUILD_NUMBER + ")";
-        version += " " + AppConstants.TIMESTAMP;
+        version += "   " + AppConstants.TIMESTAMP;
         showCenterText(version);
     }
 

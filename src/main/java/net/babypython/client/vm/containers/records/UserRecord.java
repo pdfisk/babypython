@@ -27,7 +27,7 @@ import java.sql.Timestamp;
 
 public class UserRecord {
     public int id;
-    public String name;
+    public String username;
     public Integer level;
     public String password;
     public Timestamp created_at;

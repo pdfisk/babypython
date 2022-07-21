@@ -83,16 +83,23 @@ public class LoginMenu extends SessionMenuBar {
     }
 
     void setLoggedInState() {
+        parentMenuItem.setText("Logout");
         loginItem.setText("Logout");
         registerItem.setEnabled(false);
     }
 
     void setLoggedOutState() {
+        parentMenuItem.setText("Login");
         loginItem.setText("Login");
         registerItem.setEnabled(true);
     }
 
+    public void setParentMenuItem(MenuItem menuItem) {
+        parentMenuItem = menuItem;
+    }
+
     MenuItem loginItem;
     NavBar navBar;
+    MenuItem parentMenuItem;
     MenuItem registerItem;
 }

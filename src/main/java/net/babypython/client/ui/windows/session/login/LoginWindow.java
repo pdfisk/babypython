@@ -54,6 +54,11 @@ public class LoginWindow extends GwtWindow {
     }
 
     @Override
+    public boolean defaultHideOnClose() {
+        return true;
+    }
+
+    @Override
     protected boolean defaultModal() {
         return true;
     }
@@ -119,5 +124,12 @@ public class LoginWindow extends GwtWindow {
         }
     }
 
+    public static LoginWindow getInstance() {
+        if (instance == null)
+            instance = new LoginWindow();
+        return instance;
+    }
+
     LoginForm loginForm;
+    static LoginWindow instance;
 }
