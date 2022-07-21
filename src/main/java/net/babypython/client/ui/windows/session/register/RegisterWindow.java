@@ -24,13 +24,14 @@
 package net.babypython.client.ui.windows.session.register;
 
 import com.google.gwt.user.client.ui.Widget;
-import net.babypython.client.ui.windows.session.register.widgets.RegisterForm;
 import net.babypython.client.ui.constants.CommonWindowConstants;
 import net.babypython.client.ui.gwt.window.GwtWindow;
 import net.babypython.client.ui.gwt.window.widgets.GwtWindowButtonBar;
 import net.babypython.client.ui.session.Session;
 import net.babypython.client.ui.session.SessionState;
-import net.babypython.client.ui.windows.welcome.widgets.ButtonBar;
+import net.babypython.client.ui.util.Logable;
+import net.babypython.client.ui.windows.session.register.widgets.ButtonBar;
+import net.babypython.client.ui.windows.session.register.widgets.RegisterForm;
 import net.babypython.client.vm.events.error.ErrorEventBus;
 
 public class RegisterWindow extends GwtWindow {
@@ -48,6 +49,11 @@ public class RegisterWindow extends GwtWindow {
     @Override
     protected int defaultHeight() {
         return CommonWindowConstants.RegisterWindowHeight;
+    }
+
+    @Override
+    public boolean defaultHideOnClose() {
+        return true;
     }
 
     @Override
@@ -98,15 +104,15 @@ public class RegisterWindow extends GwtWindow {
     }
 
     void onRegister() {
+        String username = registerForm.getName();
+        String password = registerForm.getPassword();
         String errorMessage = registerForm.validateForm();
         if (errorMessage != null) {
             ErrorEventBus.fireInfoEvent(errorMessage);
+            Logable.info("onRegister error", username, password, errorMessage);
             return;
         }
-        String name = registerForm.getName();
-        String email = registerForm.getEmail();
-        String password = registerForm.getPassword();
-        Session.getInstance().tryRegister(name, email, password);
+        Session.getInstance().tryRegister(username,  password);
     }
 
     void onReset() {
@@ -122,5 +128,12 @@ public class RegisterWindow extends GwtWindow {
         }
     }
 
+    public static RegisterWindow getInstance() {
+        if (instance == null)
+            instance = new RegisterWindow();
+        return instance;
+    }
+
     RegisterForm registerForm;
+    static RegisterWindow instance;
 }

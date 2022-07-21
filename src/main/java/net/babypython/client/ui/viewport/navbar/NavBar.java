@@ -32,6 +32,7 @@ import net.babypython.client.constants.AppConstants;
 import net.babypython.client.python.api.PythonApi;
 import net.babypython.client.ui.constants.*;
 import net.babypython.client.ui.gwt.widgets.GwtDockPanel;
+import net.babypython.client.ui.session.Session;
 import net.babypython.client.ui.session.SessionState;
 import net.babypython.client.ui.util.DomUtils;
 import net.babypython.client.ui.util.PwaUtil;
@@ -273,8 +274,12 @@ public class NavBar extends GwtDockPanel implements ISessionState {
         LoginWindow.getInstance().show();
     }
 
+    public void onLogout() {
+        Session.setLoggedOut();
+    }
+
     public void onRegister() {
-        new RegisterWindow();
+        RegisterWindow.getInstance().show();
     }
 
     void onGitHub() {

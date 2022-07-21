@@ -152,7 +152,7 @@ public class CommonWindowConstants {
     // register window
     public static final String RegisterWindowHeader = "Register";
     public static final int RegisterWindowWidth = 275;
-    public static final int RegisterWindowHeight = 160;
+    public static final int RegisterWindowHeight = 132;
     public static final int RegisterWindowLabelWidth = 60;
     public static final int RegisterWindowWidgetAdjust = 3;
 

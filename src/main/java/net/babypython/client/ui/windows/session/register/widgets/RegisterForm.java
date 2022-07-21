@@ -9,7 +9,6 @@ public class RegisterForm extends GwtForm {
     protected void addFields() {
         super.addFields();
         nameField = addTextBox("Name");
-        emailField = addTextBox("Email");
         passwordField = addTextBox("Password");
     }
 
@@ -23,10 +22,6 @@ public class RegisterForm extends GwtForm {
         return CommonWindowConstants.RegisterWindowWidgetAdjust;
     }
 
-    public String getEmail() {
-        return emailField.getValue();
-    }
-
     public String getName() {
         return nameField.getValue();
     }
@@ -37,21 +32,19 @@ public class RegisterForm extends GwtForm {
 
     public void reset() {
         nameField.setValue("");
-        emailField.setValue("");
         passwordField.setValue("");
     }
 
     public String validateForm() {
         String name = getName();
         String password = getPassword();
-        if (name.length() < 5)
-            return "name must be at least 5 characters";
-        if (password.length() < 5)
-            return "password must be at least 5 characters";
+        if (name.length() < 3)
+            return "name must be at least 3 characters";
+        if (password.length() < 3)
+            return "password must be at least 3 characters";
         return null;
     }
 
-    TextBox emailField;
     TextBox nameField;
     TextBox passwordField;
 }

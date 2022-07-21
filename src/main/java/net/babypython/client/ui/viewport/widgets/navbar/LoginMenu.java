@@ -46,7 +46,7 @@ public class LoginMenu extends SessionMenuBar {
         switch (Session.getSessionState()) {
             case LoggedIn:
             case LoggedInAsAdmin:
-                Session.setLoggedOut();
+                navBar.onLogout();
                 break;
             case LoggedOut:
                 navBar.onLogin();
