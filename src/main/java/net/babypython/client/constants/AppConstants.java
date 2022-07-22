@@ -30,9 +30,9 @@ public class AppConstants {
     public static final boolean SHOW_MERCHANDISE = true;
     public static final boolean SHOW_PATREON = true;
     //
-    public static final String TIMESTAMP = "2022-07-22T14:13:23Z";
+    public static final String TIMESTAMP = "2022-07-22T15:11:06Z";
     public static final String VERSION = "1.0.0";
-    public static final String BUILD_NUMBER = "33";
+    public static final String BUILD_NUMBER = "35";
 }
 
 // https://www.utctime.net/gmt-time-now

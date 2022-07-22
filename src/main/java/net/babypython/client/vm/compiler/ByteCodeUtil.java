@@ -55,19 +55,19 @@ public class ByteCodeUtil extends Logable {
 
     static String bcName(int bc) {
         switch (bc) {
-            case ByteCodeConstants.OpAssignGlobalVariable:
+            case ByteCodeConstants.STORE_GLOBAL:
                 return "AssignGlobal";
-            case ByteCodeConstants.OpAssignLocalVariable:
+            case ByteCodeConstants.STORE_NAME:
                 return "AssignLocal";
-            case ByteCodeConstants.OpBinaryDivide:
+            case ByteCodeConstants.BINARY_TRUE_DIVIDE:
                 return "BinaryDivide";
-            case ByteCodeConstants.OpBinaryMinus:
+            case ByteCodeConstants.BINARY_SUBTRACT:
                 return "BinaryMinus";
-            case ByteCodeConstants.OpBinaryMod:
+            case ByteCodeConstants.BINARY_MODULO:
                 return "BinaryMod";
-            case ByteCodeConstants.OpBinaryMultiply:
+            case ByteCodeConstants.BINARY_MULTIPLY:
                 return "BinaryMultiply";
-            case ByteCodeConstants.OpBinaryPlus:
+            case ByteCodeConstants.BINARY_ADD:
                 return "BinaryPlus";
             case ByteCodeConstants.OpCompEq:
                 return "CompEq";
@@ -85,21 +85,19 @@ public class ByteCodeUtil extends Logable {
                 return "Fork";
             case ByteCodeConstants.OpJumpIfFalse:
                 return "JumpIfFalse";
-            case ByteCodeConstants.OpJumpTo:
+            case ByteCodeConstants.JUMP_ABSOLUTE:
                 return "JumpTo";
-            case ByteCodeConstants.OpPop:
+            case ByteCodeConstants.POP_TOP:
                 return "Pop";
-            case ByteCodeConstants.OpPopIntoLocalVariable:
-                return "PopIntoLocalVariable";
             case ByteCodeConstants.OpPushArray:
                 return "PushArray";
             case ByteCodeConstants.OpPushFalse:
                 return "PushFalse";
-            case ByteCodeConstants.OpPushGlobalVariable:
+            case ByteCodeConstants.LOAD_GLOBAL:
                 return "PushGlobal";
-            case ByteCodeConstants.OpPushConstant:
+            case ByteCodeConstants.LOAD_CONST:
                 return "PushLiteral";
-            case ByteCodeConstants.OpPushLocalVariable:
+            case ByteCodeConstants.LOAD_NAME:
                 return "PushLocal";
             case ByteCodeConstants.OpPushNone:
                 return "PushNil";
@@ -107,7 +105,7 @@ public class ByteCodeUtil extends Logable {
                 return "PushSelf";
             case ByteCodeConstants.OpPushTrue:
                 return "PushTrue";
-            case ByteCodeConstants.OpReturnFromMethod:
+            case ByteCodeConstants.RETURN_VALUE:
                 return "ReturnFromMethod";
             case ByteCodeConstants.OpSendMessage:
                 return "SendMessage";
@@ -130,16 +128,15 @@ public class ByteCodeUtil extends Logable {
         int bc = byteCodes.get(pc);
         switch (bc) {
             case ByteCodeConstants.OpJumpIfFalse:
-            case ByteCodeConstants.OpJumpTo:
+            case ByteCodeConstants.JUMP_ABSOLUTE:
             case ByteCodeConstants.OpPushArray:
             case ByteCodeConstants.OpValueWithArgs:
                 return StringUtil.padLeadingZeroes(byteCodes.get(pc + 1));
-            case ByteCodeConstants.OpAssignGlobalVariable:
-            case ByteCodeConstants.OpAssignLocalVariable:
-            case ByteCodeConstants.OpPopIntoLocalVariable:
-            case ByteCodeConstants.OpPushConstant:
-            case ByteCodeConstants.OpPushLocalVariable:
-            case ByteCodeConstants.OpPushGlobalVariable:
+            case ByteCodeConstants.STORE_GLOBAL:
+            case ByteCodeConstants.STORE_NAME:
+            case ByteCodeConstants.LOAD_CONST:
+            case ByteCodeConstants.LOAD_NAME:
+            case ByteCodeConstants.LOAD_GLOBAL:
             case ByteCodeConstants.OpSendMessage:
             case ByteCodeConstants.OpTraceMessage:
             case ByteCodeConstants.OpTraceVariable:
@@ -157,15 +154,14 @@ public class ByteCodeUtil extends Logable {
 
     static int bcInc(int bc) {
         switch (bc) {
-            case ByteCodeConstants.OpAssignGlobalVariable:
-            case ByteCodeConstants.OpAssignLocalVariable:
+            case ByteCodeConstants.STORE_GLOBAL:
+            case ByteCodeConstants.STORE_NAME:
             case ByteCodeConstants.OpJumpIfFalse:
-            case ByteCodeConstants.OpJumpTo:
-            case ByteCodeConstants.OpPopIntoLocalVariable:
+            case ByteCodeConstants.JUMP_ABSOLUTE:
             case ByteCodeConstants.OpPushArray:
-            case ByteCodeConstants.OpPushGlobalVariable:
-            case ByteCodeConstants.OpPushConstant:
-            case ByteCodeConstants.OpPushLocalVariable:
+            case ByteCodeConstants.LOAD_GLOBAL:
+            case ByteCodeConstants.LOAD_CONST:
+            case ByteCodeConstants.LOAD_NAME:
             case ByteCodeConstants.OpSendMessage:
             case ByteCodeConstants.OpTraceMessage:
             case ByteCodeConstants.OpTraceVariable:

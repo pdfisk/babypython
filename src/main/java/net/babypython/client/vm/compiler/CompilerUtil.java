@@ -76,7 +76,7 @@ public class CompilerUtil extends Logable {
     boolean isLastReturnFromMethod() {
         if (byteCodes.size() == 0)
             return false;
-        return byteCodes.get(byteCodes.size() - 1) == ByteCodeConstants.OpReturnFromMethod;
+        return byteCodes.get(byteCodes.size() - 1) == ByteCodeConstants.RETURN_VALUE;
     }
 
     public int mark() {
@@ -89,46 +89,46 @@ public class CompilerUtil extends Logable {
     }
 
     public void opAssignGlobalVariable(String varName) {
-        addByteCode(ByteCodeConstants.OpAssignGlobalVariable);
+        addByteCode(ByteCodeConstants.STORE_GLOBAL);
         addByteCode(getLiteralIndex(varName));
     }
 
     public void opAssignInstanceVariable(String varName) {
-        addByteCode(ByteCodeConstants.OpAssignInstanceVariable);
+        addByteCode(ByteCodeConstants.STORE_ATTR);
         addByteCode(getLiteralIndex(varName));
     }
 
     public void opAssignLocalVariable(String varName) {
-        addByteCode(ByteCodeConstants.OpAssignLocalVariable);
+        addByteCode(ByteCodeConstants.STORE_NAME);
         addByteCode(getLiteralIndex(varName));
     }
 
     public void opBinaryDivide() {
-        addByteCode(ByteCodeConstants.OpBinaryDivide);
+        addByteCode(ByteCodeConstants.BINARY_TRUE_DIVIDE);
         recordingStack.recordPop(2);
         recordingStack.recordPush();
     }
 
     public void opBinaryMinus() {
-        addByteCode(ByteCodeConstants.OpBinaryMinus);
+        addByteCode(ByteCodeConstants.BINARY_SUBTRACT);
         recordingStack.recordPop(2);
         recordingStack.recordPush();
     }
 
     public void opBinaryMod() {
-        addByteCode(ByteCodeConstants.OpBinaryMod);
+        addByteCode(ByteCodeConstants.BINARY_MODULO);
         recordingStack.recordPop(2);
         recordingStack.recordPush();
     }
 
     public void opBinaryMultiply() {
-        addByteCode(ByteCodeConstants.OpBinaryMultiply);
+        addByteCode(ByteCodeConstants.BINARY_MULTIPLY);
         recordingStack.recordPop(2);
         recordingStack.recordPush();
     }
 
     public void opBinaryPlus() {
-        addByteCode(ByteCodeConstants.OpBinaryPlus);
+        addByteCode(ByteCodeConstants.BINARY_ADD);
         recordingStack.recordPop(2);
         recordingStack.recordPush();
     }
@@ -176,7 +176,7 @@ public class CompilerUtil extends Logable {
     }
 
     public void opDup() {
-        addByteCode(ByteCodeConstants.OpDup);
+        addByteCode(ByteCodeConstants.DUP_TOP);
     }
 
     public void opFork() {
@@ -195,18 +195,12 @@ public class CompilerUtil extends Logable {
     }
 
     public void opJumpTo(int n) {
-        addByteCode(ByteCodeConstants.OpJumpTo);
+        addByteCode(ByteCodeConstants.JUMP_ABSOLUTE);
         addByteCode(n);
     }
 
     public void opPop() {
-        addByteCode(ByteCodeConstants.OpPop);
-        recordingStack.recordPop();
-    }
-
-    public void opPopIntoLocalVariable(String varName) {
-        addByteCode(ByteCodeConstants.OpPopIntoLocalVariable);
-        addByteCode(getLiteralIndex(varName));
+        addByteCode(ByteCodeConstants.POP_TOP);
         recordingStack.recordPop();
     }
 
@@ -236,26 +230,26 @@ public class CompilerUtil extends Logable {
     }
 
     public void opPushGlobalVariable(String varName) {
-        addByteCode(ByteCodeConstants.OpPushGlobalVariable);
+        addByteCode(ByteCodeConstants.LOAD_GLOBAL);
         addByteCode(getLiteralIndex(varName));
         recordingStack.recordPush();
     }
 
     public void opPushInstanceVariable(String varName) {
-        addByteCode(ByteCodeConstants.OpPushInstanceVariable);
+        addByteCode(ByteCodeConstants.LOAD_ATTR);
         addByteCode(getLiteralIndex(varName));
         recordingStack.recordPush();
 
     }
 
     public void opPushLiteral(Object literal) {
-        addByteCode(ByteCodeConstants.OpPushConstant);
+        addByteCode(ByteCodeConstants.LOAD_CONST);
         addByteCode(getLiteralIndex(literal));
         recordingStack.recordPush();
     }
 
     public void opPushLocalVariable(String varName) {
-        addByteCode(ByteCodeConstants.OpPushLocalVariable);
+        addByteCode(ByteCodeConstants.LOAD_NAME);
         addByteCode(getLiteralIndex(varName));
         recordingStack.recordPush();
     }
@@ -305,7 +299,7 @@ public class CompilerUtil extends Logable {
 
     public void opReturnFromMethod() {
         if (!isLastReturnFromMethod()) {
-            addByteCode(ByteCodeConstants.OpReturnFromMethod);
+            addByteCode(ByteCodeConstants.RETURN_VALUE);
             recordingStack.recordPush();
         }
     }

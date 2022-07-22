@@ -187,28 +187,28 @@ public class VmProcess extends Logable {
         opCodeCount++;
         try {
             switch (opCode) {
-                case ByteCodeConstants.OpAssignGlobalVariable:
+                case ByteCodeConstants.STORE_GLOBAL:
                     opAssignGlobalVariable();
                     break;
-                case ByteCodeConstants.OpAssignInstanceVariable:
+                case ByteCodeConstants.STORE_ATTR:
                     opAssignInstanceVariable();
                     break;
-                case ByteCodeConstants.OpAssignLocalVariable:
+                case ByteCodeConstants.STORE_NAME:
                     opAssignLocalVariable();
                     break;
-                case ByteCodeConstants.OpBinaryDivide:
+                case ByteCodeConstants.BINARY_TRUE_DIVIDE:
                     opBinaryDivide();
                     break;
-                case ByteCodeConstants.OpBinaryMinus:
+                case ByteCodeConstants.BINARY_SUBTRACT:
                     opBinaryMinus();
                     break;
-                case ByteCodeConstants.OpBinaryMod:
+                case ByteCodeConstants.BINARY_MODULO:
                     opBinaryMod();
                     break;
-                case ByteCodeConstants.OpBinaryMultiply:
+                case ByteCodeConstants.BINARY_MULTIPLY:
                     opBinaryMultiply();
                     break;
-                case ByteCodeConstants.OpBinaryPlus:
+                case ByteCodeConstants.BINARY_ADD:
                     opBinaryPlus();
                     break;
                 case ByteCodeConstants.OpCompEq:
@@ -232,7 +232,7 @@ public class VmProcess extends Logable {
                 case ByteCodeConstants.OpDefFunction:
                     opDefFunction();
                     break;
-                case ByteCodeConstants.OpDup:
+                case ByteCodeConstants.DUP_TOP:
                     opDup();
                     break;
                 case ByteCodeConstants.OpFork:
@@ -244,17 +244,14 @@ public class VmProcess extends Logable {
                 case ByteCodeConstants.OpJumpIfFalse:
                     opJumpIfFalse();
                     break;
-                case ByteCodeConstants.OpJumpTo:
+                case ByteCodeConstants.JUMP_ABSOLUTE:
                     opJumpTo();
                     break;
                 case ByteCodeConstants.OpLineChanged:
                     opLineChanged(nextByteCode());
                     break;
-                case ByteCodeConstants.OpPop:
+                case ByteCodeConstants.POP_TOP:
                     opPop();
-                    break;
-                case ByteCodeConstants.OpPopIntoLocalVariable:
-                    opPopIntoLocalVariable();
                     break;
                 case ByteCodeConstants.OpPushArray:
                     opPushArray();
@@ -268,16 +265,16 @@ public class VmProcess extends Logable {
                 case ByteCodeConstants.OpPushFalse:
                     opPushFalse();
                     break;
-                case ByteCodeConstants.OpPushGlobalVariable:
+                case ByteCodeConstants.LOAD_GLOBAL:
                     opPushGlobalVariable();
                     break;
-                case ByteCodeConstants.OpPushInstanceVariable:
+                case ByteCodeConstants.LOAD_ATTR:
                     opPushInstanceVariable();
                     break;
-                case ByteCodeConstants.OpPushConstant:
+                case ByteCodeConstants.LOAD_CONST:
                     opPushLiteral();
                     break;
-                case ByteCodeConstants.OpPushLocalVariable:
+                case ByteCodeConstants.LOAD_NAME:
                     opPushLocalVariable();
                     break;
                 case ByteCodeConstants.OpPushProperty:
@@ -301,7 +298,7 @@ public class VmProcess extends Logable {
                 case ByteCodeConstants.OpPythonInstantiateType:
                     opPythonCallInstantiateType();
                     break;
-                case ByteCodeConstants.OpReturnFromMethod:
+                case ByteCodeConstants.RETURN_VALUE:
                     opReturnFromMethod();
                     break;
                 case ByteCodeConstants.OpSendMessage:
@@ -497,12 +494,6 @@ public class VmProcess extends Logable {
 
     void opPop() {
         pop();
-    }
-
-    void opPopIntoLocalVariable() {
-        Object value = pop();
-        String variableName = getLiteral().toString();
-        currentContext.setLocalValue(variableName, value);
     }
 
     void opPushArray() {
