@@ -25,6 +25,7 @@ package net.babypython.client.ui.windows.projects.widgets;
 
 import net.babypython.client.ui.gwt.widgets.GwtListPanel;
 import net.babypython.client.ui.gwt.window.GwtWindow;
+import net.babypython.client.ui.interfaces.IHandleTextValue;
 import net.babypython.client.ui.interfaces.IListSelectionHandler;
 import net.babypython.client.vm.containers.lists.StringList;
 
@@ -38,18 +39,21 @@ public class ProjectsListPanel extends GwtListPanel implements IListSelectionHan
 
     @Override
     public void onListSelection(int index) {
-        if (fileNames == null)
+        if (projectNames == null)
             return;
-        projectsPanel.onSelectFileName(fileNames.get(index));
+        String projectName = projectNames.get(index);
+        if (getWindow() instanceof IHandleTextValue)
+            ((IHandleTextValue)getWindow()).handleTextValue(projectName);
+        projectsPanel.onSelectProjectName(projectName);
     }
 
-    public void updateFileNames(StringList fileNames) {
-        this.fileNames = fileNames;
+    public void updateProjectNames(StringList projectNames) {
+        this.projectNames = projectNames;
         clear();
-        for (String fileName : fileNames)
-            addItem(fileName);
+        for (String projectName : projectNames)
+            addItem(projectName);
     }
 
-    StringList fileNames;
+    StringList projectNames;
     ProjectsPanel projectsPanel;
 }

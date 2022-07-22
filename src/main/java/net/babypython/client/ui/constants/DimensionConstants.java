@@ -39,7 +39,7 @@ public class DimensionConstants {
     public static final int NavBarInfoPanelRight = 13;
     public static final int NavBarInfoProjectPanelIndent = 10;
     public static final int NavBarInfoProjectPanelWidth = 250;
-    public static final int NavBarInfoSessionPanelIndent = 46;
+    public static final int NavBarInfoSessionPanelIndent = 45;
     public static final int NavBarInfoSessionPanelWidth = 250;
     public static final int NavBarBorderHeight = 2;
     public static final int NavBarLoginMenuSize = 65;

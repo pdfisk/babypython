@@ -26,10 +26,14 @@ package net.babypython.client.ui.constants;
 public class WindowButtonConstants {
 
     // projects
+    public static final String ProjectsActionDelete = "delete";
     public static final String ProjectsActionOpenInWorkbench = "open_in_workbench";
     public static final String ProjectsActionRefresh = "refresh";
+    public static final String ProjectsActionSave = "save";
+    public static final String ProjectsButtonDelete = "Delete";
     public static final String ProjectsButtonOpenInWorkbench = "Open in Workbench";
     public static final String ProjectsButtonRefresh = "Refresh";
+    public static final String ProjectsButtonSave = "Save";
 
     // welcome
     public static final String WelcomeActionOpenProjects = "open_projects";

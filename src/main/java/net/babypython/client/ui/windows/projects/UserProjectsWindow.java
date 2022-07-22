@@ -28,13 +28,14 @@ import net.babypython.client.ui.constants.CommonWindowConstants;
 import net.babypython.client.ui.constants.WindowButtonConstants;
 import net.babypython.client.ui.gwt.window.GwtWindow;
 import net.babypython.client.ui.gwt.window.widgets.GwtWindowButtonBar;
+import net.babypython.client.ui.interfaces.IHandleTextValue;
 import net.babypython.client.ui.util.WindowUtil;
 import net.babypython.client.ui.viewport.widgets.desktop.WindowManager;
 import net.babypython.client.ui.windows.projects.widgets.ProjectsPanel;
 import net.babypython.client.ui.windows.projects.widgets.UserProjectsButtonBar;
 import net.babypython.client.ui.windows.workbench.WorkbenchWindow;
 
-public class UserProjectsWindow extends GwtWindow {
+public class UserProjectsWindow extends GwtWindow implements IHandleTextValue {
 
     @Override
     protected boolean defaultAutoShow() {
@@ -76,15 +77,30 @@ public class UserProjectsWindow extends GwtWindow {
     }
 
     @Override
+    public void handleTextValue(String value) {
+        buttonBar.setTextBoxValue(value);
+    }
+
+    @Override
     public void onButtonClicked(String actionTag) {
         switch (actionTag) {
+            case WindowButtonConstants.ProjectsActionDelete:
+                onDelete();
+                break;
             case WindowButtonConstants.ProjectsActionOpenInWorkbench:
                 onOpenInWorkbench();
                 break;
             case WindowButtonConstants.ProjectsActionRefresh:
                 onRefresh();
                 break;
+            case WindowButtonConstants.ProjectsActionSave:
+                onSave();
+                break;
         }
+    }
+
+    void onDelete() {
+        info("onDelete");
     }
 
     void onOpenInWorkbench() {
@@ -96,6 +112,11 @@ public class UserProjectsWindow extends GwtWindow {
 
     void onRefresh() {
         projectsPanel.refreshUserProjects();
+        buttonBar.setTextBoxValue("");
+    }
+
+    void onSave() {
+        info("onSave");
     }
 
     public void toggleVisible() {

@@ -69,6 +69,10 @@ public class GwtListPanel extends ListBox {
         return array;
     }
 
+    public GwtWindow getWindow() {
+        return window;
+    }
+
     public void setItems(StringList items) {
         clear();
         int visibleItemCount = items.size() > 1 ? items.size() : defaultVisibleItemCount();

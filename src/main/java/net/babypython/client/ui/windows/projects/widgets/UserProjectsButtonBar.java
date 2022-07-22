@@ -38,6 +38,8 @@ public class UserProjectsButtonBar extends GwtWindowButtonBar {
     protected StringList defaultButtons() {
         StringList buttons = super.defaultButtons();
         buttons.add(WindowButtonConstants.ProjectsButtonRefresh);
+        buttons.add(WindowButtonConstants.ProjectsButtonSave);
+        buttons.add(WindowButtonConstants.ProjectsButtonDelete);
         buttons.add(WindowButtonConstants.ProjectsButtonOpenInWorkbench);
         return buttons;
     }

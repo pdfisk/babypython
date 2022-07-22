@@ -59,7 +59,7 @@ public class ProjectsPanel extends GwtSplitLayoutPanel implements IAfterResize, 
 
     @Override
     public void handleStringListData(StringList fileNames) {
-        lhsProjectsPanel.updateFileNames(fileNames);
+        lhsProjectsPanel.updateProjectNames(fileNames);
     }
 
     @Override
@@ -79,7 +79,7 @@ public class ProjectsPanel extends GwtSplitLayoutPanel implements IAfterResize, 
         t.schedule(0);
     }
 
-    public void onSelectFileName(String fileName) {
+    public void onSelectProjectName(String fileName) {
         projectsLoader.getSharedProjectCode(fileName, this);
     }
 
