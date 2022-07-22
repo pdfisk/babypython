@@ -80,7 +80,7 @@ public class ProjectsPanel extends GwtSplitLayoutPanel implements IAfterResize, 
     }
 
     public void onSelectFileName(String fileName) {
-        projectsLoader.getFileText(fileName, this);
+        projectsLoader.getSharedProjectCode(fileName, this);
     }
 
     public void refreshSharedProjects() {

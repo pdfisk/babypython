@@ -43,7 +43,7 @@ public class ProjectsStore extends Logable {
         sharedProjectsDictionary = new ProjectsDictionary();
     }
 
-    public void getFileText(String name, IHandleTextValue handler) {
+    public void getSharedProjectCode(String name, IHandleTextValue handler) {
         if (!sharedProjectsDictionary.containsKey(name))
             return;
         String code = sharedProjectsDictionary.get(name).code;
@@ -59,7 +59,7 @@ public class ProjectsStore extends Logable {
                 JSONArray jsonArray = JsonUtil.decode(jsonStr).isArray();
                 if (jsonArray != null) {
                     for (int i = 0; i < jsonArray.size(); i++)
-                        loadProject(jsonArray.get(i).isObject());
+                        loadSharedProject(jsonArray.get(i).isObject());
                 }
                 StringList stringList = new StringList();
                 for (String name : sharedProjectsDictionary.keySet())
@@ -70,7 +70,27 @@ public class ProjectsStore extends Logable {
         });
     }
 
-    void loadProject(JSONObject jsonObject) {
+    public void loadUserProjects(IHandleStringListData stringListDataHandler) {
+        sharedProjectsDictionary.clear();
+        String serverUrl = AppConstants.IS_DEBUG ? UrlConstants.LocalUserProjects : UrlConstants.HerokuUserProjects;
+        RequestUtil.getUrlText(serverUrl, new IRequestHandler() {
+            @Override
+            public void handleCallback(String jsonStr) {
+                JSONArray jsonArray = JsonUtil.decode(jsonStr).isArray();
+                if (jsonArray != null) {
+                    for (int i = 0; i < jsonArray.size(); i++)
+                        loadSharedProject(jsonArray.get(i).isObject());
+                }
+                StringList stringList = new StringList();
+                for (String name : sharedProjectsDictionary.keySet())
+                    stringList.add(name);
+                stringList.sort();
+                stringListDataHandler.handleStringListData(stringList);
+            }
+        });
+    }
+
+    void loadSharedProject(JSONObject jsonObject) {
         if (jsonObject == null)
             return;
         ProjectRecord projectRecord = new ProjectRecord(jsonObject);
@@ -84,5 +104,6 @@ public class ProjectsStore extends Logable {
     }
 
     ProjectsDictionary sharedProjectsDictionary;
+    ProjectsDictionary userProjectsDictionary;
     static ProjectsStore instance;
 }

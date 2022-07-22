@@ -40,6 +40,7 @@ import net.babypython.client.ui.util.PwaUtil;
 import net.babypython.client.ui.viewport.widgets.desktop.WindowManager;
 import net.babypython.client.ui.viewport.widgets.navbar.*;
 import net.babypython.client.ui.windows.projects.SharedProjectsWindow;
+import net.babypython.client.ui.windows.projects.UserProjectsWindow;
 import net.babypython.client.ui.windows.session.login.LoginWindow;
 import net.babypython.client.ui.windows.session.register.RegisterWindow;
 import net.babypython.client.ui.windows.transcript.TranscriptWindow;
@@ -90,7 +91,7 @@ public class NavBar extends GwtDockPanel implements ISessionState {
     }
 
     protected void onMyProjects() {
-        Logable.info("onMyProjects");
+        UserProjectsWindow.getInstance().show();
     }
 
     protected void onWorkbench() {

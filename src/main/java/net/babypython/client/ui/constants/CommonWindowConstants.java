@@ -64,7 +64,7 @@ public class CommonWindowConstants {
     public static final int ButtonBarRightPadding = 7;
     public static final int ButtonBarSpacing = 7;
     public static final int ButtonBarTextBoxHeight = 20;
-    public static final int ButtonBarTextBoxWidth = 125;
+    public static final int ButtonBarTextBoxWidth = 225;
     public static final int ButtonBarTopPadding = 3;
 
     // dashboard window
@@ -145,6 +145,7 @@ public class CommonWindowConstants {
 
     // projects
     public static final String ProjectsSharedProjectsWindowHeader = "Shared Projects";
+    public static final String ProjectsUserProjectsWindowHeader = "My Projects";
     public static final int ProjectsWindowWidthPct = 70;
     public static final int ProjectsWindowHeightPct = 70;
 
