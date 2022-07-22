@@ -112,7 +112,7 @@ public class UserProjectsWindow extends GwtWindow implements IHandleTextValue {
 
     void onRefresh() {
         projectsPanel.refreshUserProjects();
-        buttonBar.setTextBoxValue("");
+        buttonBar.clearTextBoxValue();
     }
 
     void onSave() {

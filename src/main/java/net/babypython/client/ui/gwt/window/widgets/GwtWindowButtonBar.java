@@ -72,6 +72,10 @@ public class GwtWindowButtonBar extends FlowPanel {
         add(textBox);
     }
 
+    public void clearTextBoxValue() {
+        setTextBoxValue("");
+    }
+
     protected StringList defaultButtons() {
         return new StringList();
     }
