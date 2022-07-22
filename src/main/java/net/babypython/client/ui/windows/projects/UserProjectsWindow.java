@@ -95,7 +95,7 @@ public class UserProjectsWindow extends GwtWindow {
     }
 
     void onRefresh() {
-        projectsPanel.refreshSharedProjects();
+        projectsPanel.refreshUserProjects();
     }
 
     public void toggleVisible() {

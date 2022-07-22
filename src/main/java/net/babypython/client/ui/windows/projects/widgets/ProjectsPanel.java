@@ -88,6 +88,11 @@ public class ProjectsPanel extends GwtSplitLayoutPanel implements IAfterResize, 
         projectsLoader.loadSharedProjects(this);
     }
 
+    public void refreshUserProjects() {
+        clear();
+        projectsLoader.loadUserProjects(this);
+    }
+
     GwtWindow parentWindow;
     ProjectsListPanel lhsProjectsPanel;
     ProjectsStore projectsLoader;
