@@ -53,7 +53,7 @@ public class NavBar extends GwtDockPanel implements ISessionState {
         super();
         pythonApi = getPythonApi();
         setHeight(DimensionConstants.NavBarHeight + "px");
-        getElement().getStyle().setBackgroundColor(ColorConstants.NavBarBackgroundGray);
+        getElement().getStyle().setBackgroundColor(ColorConstants.NavBarBackgroundLightOrange);
         getElement().getStyle().setColor(ColorConstants.NavBarTextColor);
         menuDockPanel = new GwtDockPanel();
         outerDockPanel = new GwtDockPanel();
@@ -101,7 +101,7 @@ public class NavBar extends GwtDockPanel implements ISessionState {
     void addLoginMenus() {
         MenuBar loginMenuBar = new MenuBar();
         loginMenuBar.getElement().getStyle().setBackgroundImage(null);
-        loginMenuBar.getElement().getStyle().setBackgroundColor(ColorConstants.NavBarBackgroundLightBlue);
+        loginMenuBar.getElement().getStyle().setBackgroundColor(ColorConstants.NavBarBackgroundLightOrange);
         loginMenu = new LoginMenu(this);
         loginMenu.setAnimationEnabled(true);
         loginMenu.getElement().addClassName("subMenuStyle");
@@ -259,7 +259,7 @@ public class NavBar extends GwtDockPanel implements ISessionState {
     void createCenterMenuBar() {
         centerMenuBar = new MenuBar();
         centerMenuBar.getElement().getStyle().setBackgroundImage(null);
-        centerMenuBar.getElement().getStyle().setBackgroundColor(ColorConstants.NavBarBackgroundLightBlue);
+        centerMenuBar.getElement().getStyle().setBackgroundColor(ColorConstants.NavBarBackgroundLightOrange);
     }
 
     void createInfoPanel() {

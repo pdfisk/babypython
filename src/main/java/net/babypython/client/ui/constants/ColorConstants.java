@@ -44,6 +44,7 @@ public class ColorConstants {
     // viewport
     public static final String NavBarBackgroundGray = "#d5e2f2";
     public static final String NavBarBackgroundLightBlue = "#d5e2f2";
+    public static final String NavBarBackgroundLightOrange = "#f5ab54";
     public static final String NavBarBorderColor = "#c0c0c0";
     public static final String NavBarTextColor = "#30619c";
     public static final String DesktopBackgroundColor = "#79A5A6";
@@ -57,6 +58,7 @@ public class ColorConstants {
 
     // windows
     public static final String WindowDecoratorGray = "#d9d9d9";
+    public static final String WindowDecoratorMauve = "#986784";
     public static final String WindowDecoratorLightBlue = "#ced9e7";
     public static final String WindowTitle1Color = "#324967";
     public static final String WindowTitle2Color = "#436189";

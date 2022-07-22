@@ -63,7 +63,7 @@ public class GwtWindow extends PopupPanel implements IAfterResize, ICallMethod, 
     protected static final int MINIMUM_WINDOW_HEIGHT = HEADER_BAR_HEIGHT + 2 * EDGE_WIDTH;
     protected static final int MINIMUM_WINDOW_WIDTH = 100;
 
-    protected static final String DECORATOR_COLOR = ColorConstants.WindowDecoratorGray;
+    protected static final String DECORATOR_COLOR = ColorConstants.WindowDecoratorMauve;
 
     protected static final String BUTTON_BAR_COLOR = DECORATOR_COLOR;
     protected static final String CONTENT_WIDGET_COLOR = "white";
