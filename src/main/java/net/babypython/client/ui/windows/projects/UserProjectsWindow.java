@@ -29,6 +29,7 @@ import net.babypython.client.ui.constants.WindowButtonConstants;
 import net.babypython.client.ui.gwt.window.GwtWindow;
 import net.babypython.client.ui.gwt.window.widgets.GwtWindowButtonBar;
 import net.babypython.client.ui.interfaces.IHandleTextValue;
+import net.babypython.client.ui.session.SessionState;
 import net.babypython.client.ui.util.WindowUtil;
 import net.babypython.client.ui.viewport.widgets.desktop.WindowManager;
 import net.babypython.client.ui.windows.projects.widgets.ProjectsPanel;
@@ -117,6 +118,13 @@ public class UserProjectsWindow extends GwtWindow implements IHandleTextValue {
 
     void onSave() {
         info("onSave");
+    }
+
+    @Override
+    public void onSessionStateChanged(SessionState sessionState) {
+        super.onSessionStateChanged(sessionState);
+        if (sessionState == SessionState.LoggedOut)
+            close();
     }
 
     public void toggleVisible() {
