@@ -30,20 +30,20 @@ import net.babypython.client.ui.util.Logable;
 public class DocUtil extends Logable {
 
     public static void getDocumentationIndexJson(IRequestHandler handler) {
-        RequestUtil.getUrlText(DocumentationConstants.IndexJson, handler);
+        RequestUtil.sendGetRequest(DocumentationConstants.IndexJson, handler);
     }
 
     public static void getDocumentationMarkdown(String path, IRequestHandler handler) {
         String url = DocumentationConstants.MarkdownFolder + "/" + path + ".md";
-        RequestUtil.getUrlText(url, handler);
+        RequestUtil.sendGetRequest(url, handler);
     }
 
     public static void getPanelTemplate(IRequestHandler handler) {
-        RequestUtil.getUrlText(DocumentationConstants.PanelTemplate, handler);
+        RequestUtil.sendGetRequest(DocumentationConstants.PanelTemplate, handler);
     }
 
     public static void getPageTemplate(IRequestHandler handler) {
-        RequestUtil.getUrlText(DocumentationConstants.PageTemplate, handler);
+        RequestUtil.sendGetRequest(DocumentationConstants.PageTemplate, handler);
     }
 
 }

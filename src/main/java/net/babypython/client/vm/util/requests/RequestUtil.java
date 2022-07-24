@@ -29,16 +29,18 @@ import com.google.gwt.http.client.RequestCallback;
 import com.google.gwt.http.client.Response;
 import net.babypython.client.ui.interfaces.IRequestHandler;
 import net.babypython.client.ui.util.Logable;
+import net.babypython.client.vm.containers.dictionaries.RequestParamsDictionary;
+import net.babypython.client.vm.vm.runtime.operations.StringOps;
 
 public class RequestUtil extends Logable {
 
-    public static void getUrlText(String url, IRequestHandler handler) {
-        getUrlText(url, handler, null);
+    public static void sendGetRequest(String url, IRequestHandler handler) {
+        sendGetRequest(url, handler, null);
     }
 
-    public static void getUrlText(String url, IRequestHandler handler, String requestData) {
-        if (requestData != null)
-            url += "?" + requestData;
+    public static void sendGetRequest(String url, IRequestHandler handler, RequestParamsDictionary requestParams) {
+        if (requestParams != null)
+            url = buildGetUrl(url, requestParams);
         RequestBuilder requestBuilder = new RequestBuilder(RequestBuilder.GET, url);
         requestBuilder.setCallback(new RequestCallback() {
             @Override
@@ -56,6 +58,21 @@ public class RequestUtil extends Logable {
         } catch (Exception e) {
             handleCallback(handler, "Error: " + e.getMessage());
         }
+    }
+
+    static String buildGetUrl(String url, RequestParamsDictionary requestParams) {
+        if (requestParams.isEmpty())
+            return url;
+        String paramsString = "?";
+        String sep = "";
+        for (String key : requestParams.keySet()) {
+            paramsString += sep;
+            sep = "&";
+            paramsString += key;
+            paramsString += "=";
+            paramsString += StringOps.coerce(requestParams.get(key));
+        }
+        return url + paramsString;
     }
 
     static void handleCallback(IRequestHandler handler, String text) {

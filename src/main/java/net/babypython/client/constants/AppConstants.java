@@ -25,7 +25,7 @@ package net.babypython.client.constants;
  */
 
 public class AppConstants {
-    public static final boolean IS_DEBUG = false;
+    public static final boolean IS_DEBUG = true;
     //
     public static final boolean SHOW_DEBUG = false;
     public static final boolean SHOW_MERCHANDISE = true;

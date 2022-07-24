@@ -32,6 +32,7 @@ import net.babypython.client.ui.util.Logable;
 import net.babypython.client.ui.viewport.widgets.navbar.InfoPanel;
 import net.babypython.client.ui.windows.session.login.LoginWindow;
 import net.babypython.client.ui.windows.session.register.RegisterWindow;
+import net.babypython.client.vm.containers.dictionaries.RequestParamsDictionary;
 import net.babypython.client.vm.containers.records.UserRecord;
 import net.babypython.client.vm.events.error.ErrorEventBus;
 import net.babypython.client.vm.events.session.SessionEventBus;
@@ -94,16 +95,16 @@ public class Session extends Logable {
     }
 
     public void tryLogin(String username, String password) {
-        String requestData = "";
-        requestData += "username=" + username + "&";
-        requestData += "password=" + password;
+        RequestParamsDictionary requestParams = new RequestParamsDictionary(
+          "username", username, "password", password
+        );
         String serverUrl = AppConstants.IS_DEBUG ? UrlConstants.LocalUser : UrlConstants.HerokuUser;
-        RequestUtil.getUrlText(serverUrl, new IRequestHandler() {
+        RequestUtil.sendGetRequest(serverUrl, new IRequestHandler() {
             @Override
             public void handleCallback(String jsonStr) {
                 handleLoginJsonStr(jsonStr);
             }
-        }, requestData);
+        }, requestParams);
     }
 
     void handleLoginJsonStr(String jsonStr) {
@@ -128,16 +129,16 @@ public class Session extends Logable {
     }
 
     public void tryRegister(String username, String password) {
-        String requestData = "";
-        requestData += "username=" + username + "&";
-        requestData += "password=" + password;
+        RequestParamsDictionary requestParams = new RequestParamsDictionary(
+                "username", username, "password", password
+        );
         String serverUrl = AppConstants.IS_DEBUG ? UrlConstants.LocalRegister : UrlConstants.HerokuRegister;
-        RequestUtil.getUrlText(serverUrl, new IRequestHandler() {
+        RequestUtil.sendGetRequest(serverUrl, new IRequestHandler() {
             @Override
             public void handleCallback(String jsonStr) {
                 handleRegisterJsonStr(jsonStr);
             }
-        }, requestData);
+        }, requestParams);
     }
 
     void handleRegisterJsonStr(String jsonStr) {

@@ -53,7 +53,7 @@ public class ProjectsStore extends Logable {
     public void loadSharedProjects(IHandleStringListData stringListDataHandler) {
         sharedProjectsDictionary.clear();
         String serverUrl = AppConstants.IS_DEBUG ? UrlConstants.LocalSharedProjects : UrlConstants.HerokuSharedProjects;
-        RequestUtil.getUrlText(serverUrl, new IRequestHandler() {
+        RequestUtil.sendGetRequest(serverUrl, new IRequestHandler() {
             @Override
             public void handleCallback(String jsonStr) {
                 JSONArray jsonArray = JsonUtil.decode(jsonStr).isArray();
@@ -73,7 +73,7 @@ public class ProjectsStore extends Logable {
     public void loadUserProjects(IHandleStringListData stringListDataHandler) {
         sharedProjectsDictionary.clear();
         String serverUrl = AppConstants.IS_DEBUG ? UrlConstants.LocalUserProjects : UrlConstants.HerokuUserProjects;
-        RequestUtil.getUrlText(serverUrl, new IRequestHandler() {
+        RequestUtil.sendGetRequest(serverUrl, new IRequestHandler() {
             @Override
             public void handleCallback(String jsonStr) {
                 JSONArray jsonArray = JsonUtil.decode(jsonStr).isArray();
