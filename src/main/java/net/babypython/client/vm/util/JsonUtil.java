@@ -67,6 +67,20 @@ public class JsonUtil {
         return "";
     }
 
+    public static JSONValue toJsonValue(Object value) {
+        if (value == null)
+            return JSONNull.getInstance();
+        if (value instanceof Integer)
+            return new JSONNumber((int)value);
+        if (value instanceof Double)
+            return new JSONNumber((double)value);
+        if (value instanceof Boolean)
+            return JSONBoolean.getInstance((Boolean) value);
+        if (value instanceof String)
+            return new JSONString((String) value);
+        return new JSONString(value.toString());
+    }
+
     public static String getStringField(JSONObject jsonObject, String key) {
         return getString(jsonObject.get(key));
     }

@@ -34,6 +34,7 @@ import net.babypython.client.ui.util.WindowUtil;
 import net.babypython.client.ui.viewport.widgets.desktop.WindowManager;
 import net.babypython.client.ui.windows.projects.widgets.ProjectsPanel;
 import net.babypython.client.ui.windows.projects.widgets.UserProjectsButtonBar;
+import net.babypython.client.ui.windows.projects.widgets.UserProjectsPanel;
 import net.babypython.client.ui.windows.workbench.WorkbenchWindow;
 
 public class UserProjectsWindow extends GwtWindow implements IHandleTextValue {
@@ -55,7 +56,7 @@ public class UserProjectsWindow extends GwtWindow implements IHandleTextValue {
 
     @Override
     protected Widget defaultContent() {
-        return projectsPanel = new ProjectsPanel(this);
+        return projectsPanel = new UserProjectsPanel(this);
     }
 
     @Override
@@ -112,7 +113,7 @@ public class UserProjectsWindow extends GwtWindow implements IHandleTextValue {
     }
 
     void onRefresh() {
-        projectsPanel.refreshUserProjects();
+        projectsPanel.refresh();
         buttonBar.clearTextBoxValue();
     }
 

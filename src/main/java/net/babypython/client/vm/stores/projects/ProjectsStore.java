@@ -41,12 +41,20 @@ public class ProjectsStore extends Logable {
     ProjectsStore() {
         super();
         sharedProjectsDictionary = new ProjectsDictionary();
+        userProjectsDictionary = new ProjectsDictionary();
     }
 
     public void getSharedProjectCode(String name, IHandleTextValue handler) {
         if (!sharedProjectsDictionary.containsKey(name))
             return;
         String code = sharedProjectsDictionary.get(name).code;
+        handler.handleTextValue(code);
+    }
+
+    public void getUserProjectCode(String name, IHandleTextValue handler) {
+        if (!userProjectsDictionary.containsKey(name))
+            return;
+        String code = userProjectsDictionary.get(name).code;
         handler.handleTextValue(code);
     }
 
@@ -71,7 +79,7 @@ public class ProjectsStore extends Logable {
     }
 
     public void loadUserProjects(IHandleStringListData stringListDataHandler) {
-        sharedProjectsDictionary.clear();
+        userProjectsDictionary.clear();
         String serverUrl = AppConstants.IS_DEBUG ? UrlConstants.LocalUserProjects : UrlConstants.HerokuUserProjects;
         RequestUtil.sendGetRequest(serverUrl, new IRequestHandler() {
             @Override
@@ -79,10 +87,10 @@ public class ProjectsStore extends Logable {
                 JSONArray jsonArray = JsonUtil.decode(jsonStr).isArray();
                 if (jsonArray != null) {
                     for (int i = 0; i < jsonArray.size(); i++)
-                        loadSharedProject(jsonArray.get(i).isObject());
+                        loadUserProject(jsonArray.get(i).isObject());
                 }
                 StringList stringList = new StringList();
-                for (String name : sharedProjectsDictionary.keySet())
+                for (String name : userProjectsDictionary.keySet())
                     stringList.add(name);
                 stringList.sort();
                 stringListDataHandler.handleStringListData(stringList);
@@ -95,6 +103,13 @@ public class ProjectsStore extends Logable {
             return;
         ProjectRecord projectRecord = new ProjectRecord(jsonObject);
         sharedProjectsDictionary.put(projectRecord.name, projectRecord);
+    }
+
+    void loadUserProject(JSONObject jsonObject) {
+        if (jsonObject == null)
+            return;
+        ProjectRecord projectRecord = new ProjectRecord(jsonObject);
+        userProjectsDictionary.put(projectRecord.name, projectRecord);
     }
 
     public static ProjectsStore getInstance() {

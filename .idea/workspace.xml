@@ -10,12 +10,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="335fdbb3-86be-4bd1-bc7c-6dcce431a935" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/babypython/client/vm/containers/dictionaries/RequestParamsDictionary.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/babypython/client/ui/windows/projects/widgets/SharedProjectsPanel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/babypython/client/ui/windows/projects/widgets/UserProjectsPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/babypython/client/constants/AppConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/babypython/client/constants/AppConstants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/babypython/client/ui/session/Session.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/babypython/client/ui/session/Session.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/babypython/client/ui/windows/projects/SharedProjectsWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/babypython/client/ui/windows/projects/SharedProjectsWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/babypython/client/ui/windows/projects/UserProjectsWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/babypython/client/ui/windows/projects/UserProjectsWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/babypython/client/ui/windows/projects/widgets/ProjectsPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/babypython/client/ui/windows/projects/widgets/ProjectsPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/net/babypython/client/vm/stores/projects/ProjectsStore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/babypython/client/vm/stores/projects/ProjectsStore.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/babypython/client/vm/util/requests/DocUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/babypython/client/vm/util/requests/DocUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/babypython/client/vm/util/JsonUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/babypython/client/vm/util/JsonUtil.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/net/babypython/client/vm/util/requests/RequestUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/babypython/client/vm/util/requests/RequestUtil.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

@@ -27,9 +27,12 @@ import com.google.gwt.http.client.Request;
 import com.google.gwt.http.client.RequestBuilder;
 import com.google.gwt.http.client.RequestCallback;
 import com.google.gwt.http.client.Response;
+import com.google.gwt.json.client.JSONObject;
 import net.babypython.client.ui.interfaces.IRequestHandler;
 import net.babypython.client.ui.util.Logable;
+import net.babypython.client.vm.containers.dictionaries.ObjectDictionary;
 import net.babypython.client.vm.containers.dictionaries.RequestParamsDictionary;
+import net.babypython.client.vm.util.JsonUtil;
 import net.babypython.client.vm.vm.runtime.operations.StringOps;
 
 public class RequestUtil extends Logable {
@@ -42,6 +45,28 @@ public class RequestUtil extends Logable {
         if (requestParams != null)
             url = buildGetUrl(url, requestParams);
         RequestBuilder requestBuilder = new RequestBuilder(RequestBuilder.GET, url);
+        requestBuilder.setCallback(new RequestCallback() {
+            @Override
+            public void onResponseReceived(Request request, Response response) {
+                handleCallback(handler, response.getText());
+            }
+
+            @Override
+            public void onError(Request request, Throwable exception) {
+                handleCallback(handler, "Error: " + exception.getMessage());
+            }
+        });
+        try {
+            requestBuilder.send();
+        } catch (Exception e) {
+            handleCallback(handler, "Error: " + e.getMessage());
+        }
+    }
+
+    public static void sendPostRequest(String url, IRequestHandler handler, RequestParamsDictionary requestParams) {
+        RequestBuilder requestBuilder = new RequestBuilder(RequestBuilder.POST, url);
+        requestBuilder.setHeader("Content-Type", "application/json;charset=UTF-8");
+        requestBuilder.setRequestData(buildPostJsonString(requestParams));
         requestBuilder.setCallback(new RequestCallback() {
             @Override
             public void onResponseReceived(Request request, Response response) {
@@ -73,6 +98,15 @@ public class RequestUtil extends Logable {
             paramsString += StringOps.coerce(requestParams.get(key));
         }
         return url + paramsString;
+    }
+
+   static String buildPostJsonString(RequestParamsDictionary paramsDictionary) {
+        JSONObject jsonObject = new JSONObject();
+        for(String key:paramsDictionary.keySet()) {
+            Object value = paramsDictionary.get(key);
+            jsonObject.put(key, JsonUtil.toJsonValue(paramsDictionary.get(key)));
+        }
+        return jsonObject.toString();
     }
 
     static void handleCallback(IRequestHandler handler, String text) {

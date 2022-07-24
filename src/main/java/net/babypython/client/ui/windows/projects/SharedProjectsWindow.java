@@ -32,6 +32,7 @@ import net.babypython.client.ui.util.WindowUtil;
 import net.babypython.client.ui.viewport.widgets.desktop.WindowManager;
 import net.babypython.client.ui.windows.projects.widgets.SharedProjectsButtonBar;
 import net.babypython.client.ui.windows.projects.widgets.ProjectsPanel;
+import net.babypython.client.ui.windows.projects.widgets.SharedProjectsPanel;
 import net.babypython.client.ui.windows.workbench.WorkbenchWindow;
 
 public class SharedProjectsWindow extends GwtWindow {
@@ -53,7 +54,7 @@ public class SharedProjectsWindow extends GwtWindow {
 
     @Override
     protected Widget defaultContent() {
-        return projectsPanel = new ProjectsPanel(this);
+        return projectsPanel = new SharedProjectsPanel(this);
     }
 
     @Override
@@ -95,7 +96,7 @@ public class SharedProjectsWindow extends GwtWindow {
     }
 
     void onRefresh() {
-        projectsPanel.refreshSharedProjects();
+        projectsPanel.refresh();
     }
 
     public void toggleVisible() {
