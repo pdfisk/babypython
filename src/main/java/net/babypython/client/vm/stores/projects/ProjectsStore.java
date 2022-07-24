@@ -30,6 +30,7 @@ import net.babypython.client.ui.constants.UrlConstants;
 import net.babypython.client.ui.interfaces.IHandleStringListData;
 import net.babypython.client.ui.interfaces.IHandleTextValue;
 import net.babypython.client.ui.interfaces.IRequestHandler;
+import net.babypython.client.ui.session.Session;
 import net.babypython.client.ui.util.Logable;
 import net.babypython.client.vm.containers.dictionaries.ProjectsDictionary;
 import net.babypython.client.vm.containers.lists.StringList;
@@ -81,6 +82,8 @@ public class ProjectsStore extends Logable {
     public void loadUserProjects(IHandleStringListData stringListDataHandler) {
         userProjectsDictionary.clear();
         String serverUrl = AppConstants.IS_DEBUG ? UrlConstants.LocalUserProjects : UrlConstants.HerokuUserProjects;
+        String username = Session.getCurrentUser().username;
+        serverUrl = serverUrl + "/" + username;
         RequestUtil.sendGetRequest(serverUrl, new IRequestHandler() {
             @Override
             public void handleCallback(String jsonStr) {
