@@ -33,7 +33,6 @@ public class ByteCodeConstants {
     public static final int OpDefFunction = 1015;
     public static final int OpFork = 1017;
     public static final int OpForkWithArgs = 1018;
-    public static final int OpJumpIfFalse = 1019;
     public static final int OpLineChanged = 1021;
     public static final int OpPushArray = 1024;
     public static final int OpPushAssociation = 1025;
@@ -70,6 +69,7 @@ public class ByteCodeConstants {
     public static final int LOAD_NAME = 101;
     public static final int LOAD_ATTR = 106;
     public static final int JUMP_ABSOLUTE = 113;
+    public static final int POP_JUMP_IF_FALSE = 114;
     public static final int LOAD_GLOBAL = 116;
 }
 

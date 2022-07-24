@@ -241,11 +241,11 @@ public class VmProcess extends Logable {
                 case ByteCodeConstants.OpForkWithArgs:
                     opForkWithArgs();
                     break;
-                case ByteCodeConstants.OpJumpIfFalse:
-                    opJumpIfFalse();
+                case ByteCodeConstants.POP_JUMP_IF_FALSE:
+                    opPopJumpIfFalse();
                     break;
                 case ByteCodeConstants.JUMP_ABSOLUTE:
-                    opJumpTo();
+                    opJumpAbsolute();
                     break;
                 case ByteCodeConstants.OpLineChanged:
                     opLineChanged(nextByteCode());
@@ -472,14 +472,14 @@ public class VmProcess extends Logable {
         }
     }
 
-    void opJumpIfFalse() {
+    void opPopJumpIfFalse() {
         Object value = pop();
         int jmp = nextByteCode();
         if (value instanceof Boolean && !((Boolean) value).booleanValue())
             setPc(jmp);
     }
 
-    void opJumpTo() {
+    void opJumpAbsolute() {
         setPc(nextByteCode());
     }
 

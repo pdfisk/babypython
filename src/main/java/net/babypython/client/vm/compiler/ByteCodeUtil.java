@@ -83,7 +83,7 @@ public class ByteCodeUtil extends Logable {
                 return "CompNeq";
             case ByteCodeConstants.OpFork:
                 return "Fork";
-            case ByteCodeConstants.OpJumpIfFalse:
+            case ByteCodeConstants.POP_JUMP_IF_FALSE:
                 return "JumpIfFalse";
             case ByteCodeConstants.JUMP_ABSOLUTE:
                 return "JumpTo";
@@ -127,7 +127,7 @@ public class ByteCodeUtil extends Logable {
     static String pcTarget(int pc) {
         int bc = byteCodes.get(pc);
         switch (bc) {
-            case ByteCodeConstants.OpJumpIfFalse:
+            case ByteCodeConstants.POP_JUMP_IF_FALSE:
             case ByteCodeConstants.JUMP_ABSOLUTE:
             case ByteCodeConstants.OpPushArray:
             case ByteCodeConstants.OpValueWithArgs:
@@ -156,7 +156,7 @@ public class ByteCodeUtil extends Logable {
         switch (bc) {
             case ByteCodeConstants.STORE_GLOBAL:
             case ByteCodeConstants.STORE_NAME:
-            case ByteCodeConstants.OpJumpIfFalse:
+            case ByteCodeConstants.POP_JUMP_IF_FALSE:
             case ByteCodeConstants.JUMP_ABSOLUTE:
             case ByteCodeConstants.OpPushArray:
             case ByteCodeConstants.LOAD_GLOBAL:

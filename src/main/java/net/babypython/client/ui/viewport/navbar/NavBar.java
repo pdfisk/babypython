@@ -86,11 +86,11 @@ public class NavBar extends GwtDockPanel implements ISessionState {
         return PythonApi.getInstance();
     }
 
-    protected void onSharedProjects() {
+    public void onSharedProjects() {
         SharedProjectsWindow.getInstance().show();
     }
 
-    protected void onMyProjects() {
+    public void onMyProjects() {
         UserProjectsWindow.getInstance().show();
     }
 
@@ -183,25 +183,7 @@ public class NavBar extends GwtDockPanel implements ISessionState {
     }
 
     protected void addProjectsMenu() {
-        MenuBar projectsMenu = new MenuBar(true);
-        projectsMenu.setAnimationEnabled(true);
-
-        projectsMenu.addItem(ViewportConstants.ProjectsMenuSharedProjects, new Command() {
-            @Override
-            public void execute() {
-                onSharedProjects();
-            }
-        });
-
-        projectsMenu.addSeparator();
-
-        projectsMenu.addItem(ViewportConstants.ProjectsMenuMyProjects, new Command() {
-            @Override
-            public void execute() {
-                onMyProjects();
-            }
-        });
-
+        projectsMenu = new ProjectsMenu(this);
         centerMenuBar.addItem(new MenuItem(ViewportConstants.ProjectsMenu, projectsMenu));
     }
 
@@ -366,6 +348,7 @@ public class NavBar extends GwtDockPanel implements ISessionState {
     @Override
     public void onSessionStateChanged(SessionState sessionState) {
         loginMenu.onSessionStateChanged(sessionState);
+        projectsMenu.onSessionStateChanged(sessionState);
     }
 
     public static NavBar getInstance() {
@@ -379,6 +362,7 @@ public class NavBar extends GwtDockPanel implements ISessionState {
     LoginMenu loginMenu;
     GwtDockPanel menuDockPanel;
     GwtDockPanel outerDockPanel;
+    ProjectsMenu projectsMenu;
     PythonApi pythonApi;
     GwtDockPanel verticalDockPanel;
     static NavBar instance;

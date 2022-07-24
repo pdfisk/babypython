@@ -1,18 +1,18 @@
 /**
  * MIT License
- *
+ * <p>
  * Copyright (c) 2022 Peter Fisk
- *
+ * <p>
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
  * in the Software without restriction, including without limitation the rights
  * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
  * copies of the Software, and to permit persons to whom the Software is
  * furnished to do so, subject to the following conditions:
- *
+ * <p>
  * The above copyright notice and this permission notice shall be included in all
  * copies or substantial portions of the Software.
- *
+ * <p>
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -85,49 +85,49 @@ public class CompilerUtil extends Logable {
 
     public void normalizeStack() {
         while (recordingStack.getStackDepth() > 1)
-            opPop();
+            op_POP_TOP();
     }
 
-    public void opAssignGlobalVariable(String varName) {
+    public void op_STORE_GLOBAL(String varName) {
         addByteCode(ByteCodeConstants.STORE_GLOBAL);
         addByteCode(getLiteralIndex(varName));
     }
 
-    public void opAssignInstanceVariable(String varName) {
+    public void op_STORE_ATTR(String varName) {
         addByteCode(ByteCodeConstants.STORE_ATTR);
         addByteCode(getLiteralIndex(varName));
     }
 
-    public void opAssignLocalVariable(String varName) {
+    public void op_STORE_NAME(String varName) {
         addByteCode(ByteCodeConstants.STORE_NAME);
         addByteCode(getLiteralIndex(varName));
     }
 
-    public void opBinaryDivide() {
+    public void op_BINARY_TRUE_DIVIDE() {
         addByteCode(ByteCodeConstants.BINARY_TRUE_DIVIDE);
         recordingStack.recordPop(2);
         recordingStack.recordPush();
     }
 
-    public void opBinaryMinus() {
+    public void op_BINARY_SUBTRACT() {
         addByteCode(ByteCodeConstants.BINARY_SUBTRACT);
         recordingStack.recordPop(2);
         recordingStack.recordPush();
     }
 
-    public void opBinaryMod() {
+    public void op_BINARY_MODULO() {
         addByteCode(ByteCodeConstants.BINARY_MODULO);
         recordingStack.recordPop(2);
         recordingStack.recordPush();
     }
 
-    public void opBinaryMultiply() {
+    public void op_BINARY_MULTIPLY() {
         addByteCode(ByteCodeConstants.BINARY_MULTIPLY);
         recordingStack.recordPop(2);
         recordingStack.recordPush();
     }
 
-    public void opBinaryPlus() {
+    public void op_BINARY_ADD() {
         addByteCode(ByteCodeConstants.BINARY_ADD);
         recordingStack.recordPop(2);
         recordingStack.recordPush();
@@ -175,7 +175,7 @@ public class CompilerUtil extends Logable {
         recordingStack.recordPush();
     }
 
-    public void opDup() {
+    public void op_DUP_TOP() {
         addByteCode(ByteCodeConstants.DUP_TOP);
     }
 
@@ -188,18 +188,18 @@ public class CompilerUtil extends Logable {
         addByteCode(nArgs);
     }
 
-    public void opJumpIfFalse(int n) {
-        addByteCode(ByteCodeConstants.OpJumpIfFalse);
+    public void op_POP_JUMP_IF_FALSE(int n) {
+        addByteCode(ByteCodeConstants.POP_JUMP_IF_FALSE);
         addByteCode(n);
         recordingStack.recordPop();
     }
 
-    public void opJumpTo(int n) {
+    public void op_JUMP_ABSOLUTE(int n) {
         addByteCode(ByteCodeConstants.JUMP_ABSOLUTE);
         addByteCode(n);
     }
 
-    public void opPop() {
+    public void op_POP_TOP() {
         addByteCode(ByteCodeConstants.POP_TOP);
         recordingStack.recordPop();
     }
@@ -229,26 +229,26 @@ public class CompilerUtil extends Logable {
         recordingStack.recordPush();
     }
 
-    public void opPushGlobalVariable(String varName) {
+    public void op_LOAD_GLOBAL(String varName) {
         addByteCode(ByteCodeConstants.LOAD_GLOBAL);
         addByteCode(getLiteralIndex(varName));
         recordingStack.recordPush();
     }
 
-    public void opPushInstanceVariable(String varName) {
+    public void op_LOAD_ATTR(String varName) {
         addByteCode(ByteCodeConstants.LOAD_ATTR);
         addByteCode(getLiteralIndex(varName));
         recordingStack.recordPush();
 
     }
 
-    public void opPushLiteral(Object literal) {
+    public void op_LOAD_CONST(Object literal) {
         addByteCode(ByteCodeConstants.LOAD_CONST);
         addByteCode(getLiteralIndex(literal));
         recordingStack.recordPush();
     }
 
-    public void opPushLocalVariable(String varName) {
+    public void op_LOAD_NAME(String varName) {
         addByteCode(ByteCodeConstants.LOAD_NAME);
         addByteCode(getLiteralIndex(varName));
         recordingStack.recordPush();
@@ -297,7 +297,7 @@ public class CompilerUtil extends Logable {
         recordingStack.recordPush();
     }
 
-    public void opReturnFromMethod() {
+    public void op_RETURN_VALUE() {
         if (!isLastReturnFromMethod()) {
             addByteCode(ByteCodeConstants.RETURN_VALUE);
             recordingStack.recordPush();

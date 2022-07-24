@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AnalysisUIOptions">
+    <option name="ANALYZE_TEST_SOURCES" value="false" />
+    <option name="SCOPE_TYPE" value="8" />
+    <option name="CUSTOM_SCOPE_NAME" value="Selected directory" />
+  </component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="335fdbb3-86be-4bd1-bc7c-6dcce431a935" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/babypython/client/ui/viewport/widgets/navbar/ProjectsMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/babypython/client/constants/AppConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/babypython/client/constants/AppConstants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/babypython/client/python/compiler/PythonCompiler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/babypython/client/python/compiler/PythonCompiler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/babypython/client/python/parser/ast/ArithExprNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/babypython/client/python/parser/ast/ArithExprNode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/babypython/client/python/parser/ast/AtomNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/babypython/client/python/parser/ast/AtomNode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/babypython/client/python/parser/ast/ExprStmtNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/babypython/client/python/parser/ast/ExprStmtNode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/babypython/client/python/parser/ast/IfStmtNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/babypython/client/python/parser/ast/IfStmtNode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/babypython/client/python/parser/ast/TermNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/babypython/client/python/parser/ast/TermNode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/babypython/client/python/parser/ast/WhileStmtNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/babypython/client/python/parser/ast/WhileStmtNode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/babypython/client/ui/viewport/navbar/NavBar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/babypython/client/ui/viewport/navbar/NavBar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/babypython/client/vm/compiler/ByteCodeUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/babypython/client/vm/compiler/ByteCodeUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/babypython/client/vm/compiler/CompilerUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/babypython/client/vm/compiler/CompilerUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/babypython/client/vm/constants/ByteCodeConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/babypython/client/vm/constants/ByteCodeConstants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/babypython/client/vm/vm/runtime/VmProcess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/babypython/client/vm/vm/runtime/VmProcess.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/main/java/net/babypython/client/constants/AppConstants.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/net/babypython/client/ui/windows/session/login/LoginWindow.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/work/tasks.txt" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/net/babypython/client/ui/windows/transcript/TranscriptWindow.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/net/babypython/client/ui/windows/session/register/RegisterWindow.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/net/babypython/client/ui/windows/session/login/widgets/LoginForm.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/pom.xml" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="ProjectErrors" />
+  </component>
+  <component name="ProjectId" id="29If53wRIhVxcsadfU6xmhxWg5Q" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+    <option name="showMembers" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\peter\source\repos\apps\baby_python\gwt\src\main\java\net\babypython\client\python\builtins\functions" />
+      <recent name="C:\Users\peter\source\repos\apps\baby_python\gwt\src\main\java\net\babypython\client\ui\gwt\widgets" />
+      <recent name="C:\Users\peter\source\repos\apps\baby_python\gwt\src\main\java\net\babypython\client\ui\viewport\widgets\desktop" />
+      <recent name="C:\Users\peter\source\repos\apps\babypython\gwt\src\main\webapp" />
+      <recent name="C:\Users\peter\source\repos\apps\babysmalltalk\gwt" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\peter\source\repos\apps\baby_python\gwt\src\main\webapp\python\scripts" />
+      <recent name="C:\Users\peter\source\repos\apps\babysmalltalk\gwt\work\scripts" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="net.babypython.client.ui.windows.welcome.widgets" />
+      <recent name="com.vista.client.ui.viewport" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="net.babypython.client.ui.viewport.widgets.navbar" />
+      <recent name="net.babypython.client.ui.windows.projects.widgets" />
+      <recent name="net.babypython.client.ui.windows.projects" />
+      <recent name="net.babypython.client.python.builtins.types.sprite.methods" />
+      <recent name="net.babypython.client.ui.windows.workbench.widgets" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="JetRunConfigurationType">
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="335fdbb3-86be-4bd1-bc7c-6dcce431a935" name="Changes" comment="" />
+      <created>1652805356914</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1652805356914</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.py" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>
