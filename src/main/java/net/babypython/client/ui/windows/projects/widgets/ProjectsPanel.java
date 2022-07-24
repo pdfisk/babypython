@@ -83,8 +83,7 @@ public abstract class ProjectsPanel extends GwtSplitLayoutPanel implements IAfte
 
     public abstract void refresh();
 
-    public void saveUserProject() {
-
+    public void save() {
     }
 
     GwtWindow parentWindow;

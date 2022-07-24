@@ -32,7 +32,9 @@ import net.babypython.client.ui.interfaces.IHandleTextValue;
 import net.babypython.client.ui.interfaces.IRequestHandler;
 import net.babypython.client.ui.session.Session;
 import net.babypython.client.ui.util.Logable;
+import net.babypython.client.vm.containers.dictionaries.ObjectDictionary;
 import net.babypython.client.vm.containers.dictionaries.ProjectsDictionary;
+import net.babypython.client.vm.containers.dictionaries.RequestParamsDictionary;
 import net.babypython.client.vm.containers.lists.StringList;
 import net.babypython.client.vm.util.JsonUtil;
 import net.babypython.client.vm.util.requests.RequestUtil;
@@ -99,6 +101,18 @@ public class ProjectsStore extends Logable {
                 stringListDataHandler.handleStringListData(stringList);
             }
         });
+    }
+
+    public void updateUserProject(RequestParamsDictionary requestParams) {
+        String serverUrl = AppConstants.IS_DEBUG ? UrlConstants.LocalUserProject : UrlConstants.HerokuUserProject;
+        String username = Session.getCurrentUser().username;
+        serverUrl = serverUrl + "/" + username;
+        RequestUtil.sendPostRequest(serverUrl, new IRequestHandler() {
+            @Override
+            public void handleCallback(String jsonStr) {
+                info("updateUserProject handleCallback", jsonStr);
+            }
+        }, requestParams);
     }
 
     void loadSharedProject(JSONObject jsonObject) {

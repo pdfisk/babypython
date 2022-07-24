@@ -118,7 +118,7 @@ public class UserProjectsWindow extends GwtWindow implements IHandleTextValue {
     }
 
     void onSave() {
-        info("onSave");
+        projectsPanel.save();
     }
 
     @Override

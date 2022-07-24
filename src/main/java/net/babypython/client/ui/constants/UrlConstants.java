@@ -32,11 +32,13 @@ public class UrlConstants {
     public static final String HerokuSharedProjects = "https://babypython.herokuapp.com/api/shared_projects";
     public static final String HerokuRegister = "https://babypython.herokuapp.com/api/register";
     public static final String HerokuUser = "https://babypython.herokuapp.com/api/user";
+    public static final String HerokuUserProject = "https://babypython.herokuapp.com/api/user_project";
     public static final String HerokuUserProjects = "https://babypython.herokuapp.com/api/user_projects";
     public static final String JavaDoc = "https://javadoc.babypython.net";
     public static final String LocalSharedProjects = "http://localhost:8081/api/shared_projects";
     public static final String LocalRegister = "http://localhost:8081/api/register";
     public static final String LocalUser = "http://localhost:8081/api/user";
+    public static final String LocalUserProject = "http://localhost:8081/api/user_project";
     public static final String LocalUserProjects = "http://localhost:8081/api/user_projects";
     public static final String Patreon = "https://patreon.com/babypython";
     public static final String Quora = "https://babypython.quora.com/";
