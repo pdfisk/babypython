@@ -39,6 +39,7 @@ import net.babypython.client.ui.util.Logable;
 import net.babypython.client.ui.viewport.navbar.NavBar;
 import net.babypython.client.ui.viewport.widgets.desktop.Desktop;
 import net.babypython.client.ui.windows.welcome.WelcomeWindow;
+import net.babypython.client.ui.windows.workbench.WorkbenchWindow;
 import net.babypython.client.vm.events.session.SessionEvent;
 import net.babypython.client.vm.events.session.SessionEventBus;
 import net.babypython.client.vm.interfaces.ISessionState;
@@ -103,7 +104,7 @@ public class Viewport extends GwtDockPanel implements ISessionState {
     }
 
     void startup() {
-        new WelcomeWindow();
+        new WorkbenchWindow();
     }
 
     interface ResizeEventBinder extends EventBinder<Viewport> {

@@ -72,6 +72,8 @@ public class WorkbenchWindow extends GwtWindow {
     @Override
     protected void onAttach() {
         super.onAttach();
+        onRightTranscript();
+        onRunContinuously();
         if (deferredCode != null) {
             setCodeAfterAttach(deferredCode);
             deferredCode = null;

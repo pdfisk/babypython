@@ -11,6 +11,9 @@
   <component name="ChangeListManager">
     <list default="true" id="335fdbb3-86be-4bd1-bc7c-6dcce431a935" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/babypython/client/constants/AppConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/babypython/client/constants/AppConstants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/babypython/client/ui/viewport/Viewport.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/babypython/client/ui/viewport/Viewport.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/babypython/client/ui/windows/workbench/WorkbenchWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/babypython/client/ui/windows/workbench/WorkbenchWindow.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,12 +40,6 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/src/main/java/net/babypython/client/constants/AppConstants.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/main/java/net/babypython/client/ui/windows/session/login/LoginWindow.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/work/tasks.txt" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/main/java/net/babypython/client/ui/windows/transcript/TranscriptWindow.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/main/java/net/babypython/client/ui/windows/session/register/RegisterWindow.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/main/java/net/babypython/client/ui/windows/session/login/widgets/LoginForm.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/pom.xml" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -56,7 +53,7 @@
     </option>
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="ProjectErrors" />
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectId" id="29If53wRIhVxcsadfU6xmhxWg5Q" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -70,14 +67,15 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\peter\source\repos\apps\pyodide\pyapp\src\main" />
       <recent name="C:\Users\peter\source\repos\apps\baby_python\gwt\src\main\java\net\babypython\client\python\builtins\functions" />
       <recent name="C:\Users\peter\source\repos\apps\baby_python\gwt\src\main\java\net\babypython\client\ui\gwt\widgets" />
       <recent name="C:\Users\peter\source\repos\apps\baby_python\gwt\src\main\java\net\babypython\client\ui\viewport\widgets\desktop" />
       <recent name="C:\Users\peter\source\repos\apps\babypython\gwt\src\main\webapp" />
-      <recent name="C:\Users\peter\source\repos\apps\babysmalltalk\gwt" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\peter\source\repos\apps\baby_python\gwt\src\main\webapp\python\scripts" />
@@ -88,11 +86,11 @@
       <recent name="com.vista.client.ui.viewport" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="net.babypython.client.ui.interfaces" />
+      <recent name="net.babypython.client.pyodide.api" />
       <recent name="net.babypython.client.ui.viewport.widgets.navbar" />
       <recent name="net.babypython.client.ui.windows.projects.widgets" />
       <recent name="net.babypython.client.ui.windows.projects" />
-      <recent name="net.babypython.client.python.builtins.types.sprite.methods" />
-      <recent name="net.babypython.client.ui.windows.workbench.widgets" />
     </key>
   </component>
   <component name="RunManager">
