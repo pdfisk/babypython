@@ -98,8 +98,8 @@ public class Session extends Logable {
         RequestParamsDictionary requestParams = new RequestParamsDictionary(
           "username", username, "password", password
         );
-        String serverUrl = AppConstants.IS_DEBUG ? UrlConstants.LocalUser : UrlConstants.HerokuUser;
-        RequestUtil.sendGetRequest(serverUrl, new IRequestHandler() {
+        String url = AppConstants.IS_DEBUG ? UrlConstants.LocalUser : UrlConstants.HerokuUser;
+        RequestUtil.sendPostRequest(url, new IRequestHandler() {
             @Override
             public void handleCallback(String jsonStr) {
                 handleLoginJsonStr(jsonStr);
