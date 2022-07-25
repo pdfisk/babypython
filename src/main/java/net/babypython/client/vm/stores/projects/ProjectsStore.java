@@ -47,6 +47,18 @@ public class ProjectsStore extends Logable {
         userProjectsDictionary = new ProjectsDictionary();
     }
 
+    public void deleteUserProject(RequestParamsDictionary requestParams) {
+        String url = AppConstants.IS_DEBUG ? UrlConstants.LocalUserProject : UrlConstants.HerokuUserProject;
+        String username = Session.getCurrentUser().username;
+        url = url + "/" + username;
+        RequestUtil.sendDeleteRequest(url, new IRequestHandler() {
+            @Override
+            public void handleCallback(String jsonStr) {
+                info("deleteUserProject handleCallback", jsonStr);
+            }
+        }, requestParams);
+    }
+
     public void getSharedProjectCode(String name, IHandleTextValue handler) {
         if (!sharedProjectsDictionary.containsKey(name))
             return;
@@ -104,10 +116,10 @@ public class ProjectsStore extends Logable {
     }
 
     public void updateUserProject(RequestParamsDictionary requestParams) {
-        String serverUrl = AppConstants.IS_DEBUG ? UrlConstants.LocalUserProject : UrlConstants.HerokuUserProject;
+        String url = AppConstants.IS_DEBUG ? UrlConstants.LocalUserProject : UrlConstants.HerokuUserProject;
         String username = Session.getCurrentUser().username;
-        serverUrl = serverUrl + "/" + username;
-        RequestUtil.sendPostRequest(serverUrl, new IRequestHandler() {
+        url = url + "/" + username;
+        RequestUtil.sendPostRequest(url, new IRequestHandler() {
             @Override
             public void handleCallback(String jsonStr) {
                 info("updateUserProject handleCallback", jsonStr);

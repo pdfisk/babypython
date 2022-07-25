@@ -23,6 +23,7 @@
  */
 package net.babypython.client.ui.windows.projects;
 
+import com.google.gwt.user.client.Timer;
 import com.google.gwt.user.client.ui.Widget;
 import net.babypython.client.ui.constants.CommonWindowConstants;
 import net.babypython.client.ui.constants.WindowButtonConstants;
@@ -74,6 +75,10 @@ public class UserProjectsWindow extends GwtWindow implements IHandleTextValue {
         return WindowUtil.getPctScreenWidth(CommonWindowConstants.ProjectsWindowWidthPct);
     }
 
+    public String getProjectName() {
+        return buttonBar.getTextBoxValue();
+    }
+
     public ProjectsPanel getProjectsPanel() {
         return projectsPanel;
     }
@@ -102,7 +107,14 @@ public class UserProjectsWindow extends GwtWindow implements IHandleTextValue {
     }
 
     void onDelete() {
-        info("onDelete");
+        projectsPanel.delete();
+        Timer t = new Timer() {
+            @Override
+            public void run() {
+                refresh();
+            }
+        };
+        t.schedule(500);
     }
 
     void onOpenInWorkbench() {
@@ -113,12 +125,18 @@ public class UserProjectsWindow extends GwtWindow implements IHandleTextValue {
     }
 
     void onRefresh() {
-        projectsPanel.refresh();
-        buttonBar.clearTextBoxValue();
+        refresh();
     }
 
     void onSave() {
         projectsPanel.save();
+        Timer t = new Timer() {
+            @Override
+            public void run() {
+                refresh();
+            }
+        };
+        t.schedule(500);
     }
 
     @Override
@@ -126,6 +144,11 @@ public class UserProjectsWindow extends GwtWindow implements IHandleTextValue {
         super.onSessionStateChanged(sessionState);
         if (sessionState == SessionState.LoggedOut)
             close();
+    }
+
+    void refresh() {
+        projectsPanel.refresh();
+        buttonBar.clearTextBoxValue();
     }
 
     public void toggleVisible() {

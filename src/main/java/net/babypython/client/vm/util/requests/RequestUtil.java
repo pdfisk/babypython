@@ -37,6 +37,28 @@ import net.babypython.client.vm.vm.runtime.operations.StringOps;
 
 public class RequestUtil extends Logable {
 
+    public static void sendDeleteRequest(String url, IRequestHandler handler, RequestParamsDictionary requestParams) {
+        RequestBuilder requestBuilder = new RequestBuilder(RequestBuilder.DELETE, url);
+        requestBuilder.setHeader("Content-Type", "application/json;charset=UTF-8");
+        requestBuilder.setRequestData(buildPostJsonString(requestParams));
+        requestBuilder.setCallback(new RequestCallback() {
+            @Override
+            public void onResponseReceived(Request request, Response response) {
+                handleCallback(handler, response.getText());
+            }
+
+            @Override
+            public void onError(Request request, Throwable exception) {
+                handleCallback(handler, "Error: " + exception.getMessage());
+            }
+        });
+        try {
+            requestBuilder.send();
+        } catch (Exception e) {
+            handleCallback(handler, "Error: " + e.getMessage());
+        }
+    }
+
     public static void sendGetRequest(String url, IRequestHandler handler) {
         sendGetRequest(url, handler, null);
     }

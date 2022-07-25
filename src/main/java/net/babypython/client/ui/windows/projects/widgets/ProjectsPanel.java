@@ -53,6 +53,9 @@ public abstract class ProjectsPanel extends GwtSplitLayoutPanel implements IAfte
         rhsPythonEditor.clear();
     }
 
+    public void delete() {
+    }
+
     public String getCode() {
         return rhsPythonEditor.getValue();
     }
@@ -86,8 +89,8 @@ public abstract class ProjectsPanel extends GwtSplitLayoutPanel implements IAfte
     public void save() {
     }
 
-    GwtWindow parentWindow;
-    ProjectsListPanel lhsProjectsPanel;
+    protected GwtWindow parentWindow;
+    protected ProjectsListPanel lhsProjectsPanel;
     protected ProjectsStore projectsLoader;
-    PythonEditor rhsPythonEditor;
+    protected PythonEditor rhsPythonEditor;
 }

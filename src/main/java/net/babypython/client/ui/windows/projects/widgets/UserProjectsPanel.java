@@ -1,12 +1,28 @@
 package net.babypython.client.ui.windows.projects.widgets;
 
 import net.babypython.client.ui.gwt.window.GwtWindow;
+import net.babypython.client.ui.session.Session;
+import net.babypython.client.ui.windows.projects.UserProjectsWindow;
 import net.babypython.client.vm.containers.dictionaries.RequestParamsDictionary;
 
 public class UserProjectsPanel extends ProjectsPanel {
 
     public UserProjectsPanel(GwtWindow parentWindow) {
         super(parentWindow);
+    }
+
+    @Override
+    public void delete() {
+        RequestParamsDictionary requestParams = new RequestParamsDictionary();
+        String name = getProjectName();
+        requestParams.put("name", name);
+        projectsLoader.deleteUserProject(requestParams);
+    }
+
+    protected String getProjectName() {
+        if (!(parentWindow instanceof UserProjectsWindow))
+            return "";
+        return ((UserProjectsWindow) parentWindow).getProjectName();
     }
 
     @Override
@@ -23,9 +39,13 @@ public class UserProjectsPanel extends ProjectsPanel {
     @Override
     public void save() {
         RequestParamsDictionary requestParams = new RequestParamsDictionary();
-        requestParams.put("One", 123);
-        requestParams.put("Two", 456);
-        requestParams.put("Three", 789);
+        String name = getProjectName();
+        String code = getCode();
+        requestParams.put("name", name);
+        requestParams.put("description", "");
+        requestParams.put("is_shared", false);
+        requestParams.put("owner_name", Session.getCurrentUser().username);
+        requestParams.put("code", code);
         projectsLoader.updateUserProject(requestParams);
     }
 
