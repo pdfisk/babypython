@@ -14,6 +14,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@1,700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/pyodide/v0.20.0/full/pyodide.js"></script>
     <script src="https://unpkg.com/blockly/blockly.min.js"></script>
     <script src="https://unpkg.com/@blockly/dev-tools@2.0.0/dist/index.js"></script>
     <script src="blockly/python_compressed.js"></script>
@@ -24,15 +25,15 @@
     <script src="vs/editor/editor.main.nls.js"></script>
     <script src="vs/editor/editor.main.js"></script>
     <script type="text/javascript" src="babypython/babypython.nocache.js"></script>
-    <link rel="manifest" href="manifest.json" />
-    <script type="module">
-        import 'https://cdn.jsdelivr.net/npm/@pwabuilder/pwaupdate';
-        const el = document.createElement('pwa-update');
-        document.body.appendChild(el);
-    </script>
 </head>
 
 <body>
+<script type="text/javascript">
+    async function main(){
+        globalThis.pyodide = await loadPyodide();
+    }
+    main();
+</script>
 </body>
 
 </html>

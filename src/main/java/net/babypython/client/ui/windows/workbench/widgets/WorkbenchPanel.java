@@ -169,7 +169,8 @@ public class WorkbenchPanel extends GwtSplitLayoutPanel implements IAfterResize 
     }
 
     public void run() {
-        pythonApi.runScript(getCode(), asStdOut(), runStyle, asHandleLineChanged(), getLocalDictionary());
+        pythonApi.runScript(getCode(), asStdOut());
+//        pythonApi.runScript(getCode(), asStdOut(), runStyle, asHandleLineChanged(), getLocalDictionary());
     }
 
     public void setBoardSize(int size) {

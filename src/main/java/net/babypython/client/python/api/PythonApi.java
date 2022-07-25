@@ -63,9 +63,15 @@ public class PythonApi extends Logable {
     }
 
     public void runScript(String src, IStdOut stdOut) {
-        runScript(src, stdOut, RunStyle.RUN_CONTINUOUSLY ,null, emptyLocalDictionary);
+        stdOut.prn(nativeRunScript(src));
     }
 
+    native String nativeRunScript(String src) /*-{
+        $wnd.console.log('nativeRunScript', src);
+        return $wnd.pyodide.runPython(src);
+    }-*/;
+
+//    runScript(src, stdOut, RunStyle.RUN_CONTINUOUSLY ,null, emptyLocalDictionary);
     public void runScript(String src, IStdOut stdOut, RunStyle runStyle, IHandleLineChanged handleLineChanged, LocalDictionary localDictionary) {
         CompiledMethod compiledMethod = compile(src);
         PythonOutputStream pyStdOut = new PythonOutputStream(stdOut);

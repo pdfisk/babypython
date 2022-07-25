@@ -11,9 +11,9 @@
   <component name="ChangeListManager">
     <list default="true" id="335fdbb3-86be-4bd1-bc7c-6dcce431a935" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/babypython/client/constants/AppConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/babypython/client/constants/AppConstants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/babypython/client/ui/viewport/Viewport.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/babypython/client/ui/viewport/Viewport.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/babypython/client/ui/windows/workbench/WorkbenchWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/babypython/client/ui/windows/workbench/WorkbenchWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/babypython/client/python/api/PythonApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/babypython/client/python/api/PythonApi.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/babypython/client/ui/windows/workbench/widgets/WorkbenchPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/babypython/client/ui/windows/workbench/widgets/WorkbenchPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
