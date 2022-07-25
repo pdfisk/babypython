@@ -133,7 +133,7 @@ public class Session extends Logable {
                 "username", username, "password", password
         );
         String serverUrl = AppConstants.IS_DEBUG ? UrlConstants.LocalRegister : UrlConstants.HerokuRegister;
-        RequestUtil.sendGetRequest(serverUrl, new IRequestHandler() {
+        RequestUtil.sendPostRequest(serverUrl, new IRequestHandler() {
             @Override
             public void handleCallback(String jsonStr) {
                 handleRegisterJsonStr(jsonStr);
