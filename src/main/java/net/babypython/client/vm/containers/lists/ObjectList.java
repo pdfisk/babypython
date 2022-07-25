@@ -27,13 +27,5 @@ import java.util.ArrayList;
 
 public class ObjectList extends ArrayList<Object> {
 
-//    @Override
-//    public ObjectList clone() {
-//        ObjectList clonedObjectList = new ObjectList();
-//        for(Object item: this)
-//            clonedObjectList.add(item);
-//        return clonedObjectList;
-//    }
-
     public static ObjectList emptyList = new ObjectList();
 }
